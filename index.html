@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sid Thaly Illustration</title>
+<meta name="description" content="Sid Thaly paints fantasy, romantasy and sci-fi book covers and character art by hand for self-published authors. No AI. Request a quote.">
+<meta name="theme-color" content="#121829">
+<link rel="canonical" href="https://sidthaly.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sidthaly.com/">
+<meta property="og:title" content="Sid Thaly: fantasy book cover and character illustrator">
+<meta property="og:description" content="Hand-painted covers and character art for self-published fantasy, romantasy and sci-fi authors.">
+<meta property="og:image" content="https://sidthaly.com/images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="#top">Sid Thaly</a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#commissions">Commissions</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="btn btn-small" href="#brief">Request a quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO: the credit line authors will see on their own book -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="credit">Cover art by</p>
+        <h1 class="hero-name">Sid Thaly</h1>
+        <p class="hero-lede">I paint book covers and characters for self-published fantasy, romantasy and sci-fi authors. Every piece is made by hand, from first thumbnail to final render. No AI at any stage.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#brief">Request a quote</a>
+          <a class="btn btn-quiet" href="#work">See the covers</a>
+        </div>
+      </div>
+
+      <figure class="hero-book">
+        <div class="book">
+          <div class="book-3d">
+            <div class="book-face book-front">
+              <img src="images/covers/epic-fantasy.jpg" alt="Epic fantasy book cover by Sid Thaly: a lone figure before a vast mountain range at dawn" width="1200" height="1800">
+            </div>
+            <!-- The spine reuses the cover image; change both paths together -->
+            <div class="book-face book-spine" aria-hidden="true" style="background-image: url('images/covers/epic-fantasy.jpg')"><span>Sid Thaly</span></div>
+            <div class="book-face book-pages" aria-hidden="true"></div>
+            <div class="book-face book-back" aria-hidden="true"></div>
+          </div>
+        </div>
+        <figcaption>Epic fantasy mock cover, 6 × 9 in paperback</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CREDITS -->
+  <section class="credits" aria-label="Credits">
+    <ul class="wrap credits-list">
+      <li>
+        <strong>SURI: The Seventh Note</strong>
+        <span>Character and environment art for a hand-drawn game set in a mythical India, selected for PlayStation’s India Hero Project 2024.</span>
+      </li>
+      <li>
+        <strong>Six years in game studios</strong>
+        <span>Senior Game Artist at Brewed Games and Tathvamasi Studios. Used to briefs, deadlines and art direction.</span>
+      </li>
+      <li>
+        <strong>Painted by hand</strong>
+        <span>Thumbnails, colour studies and final render, all done by me. You own a cover no one else can generate.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-title">Selected work</h2>
+        <p>Covers, characters and card art. Select any piece to see it full size.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter work">
+        <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter" data-filter="covers" aria-pressed="false">Book covers</button>
+        <button type="button" class="filter" data-filter="characters" aria-pressed="false">Characters</button>
+        <button type="button" class="filter" data-filter="cards" aria-pressed="false">Card art</button>
+        <button type="button" class="filter" data-filter="game" aria-pressed="false">Game art</button>
+      </div>
+
+      <!--
+        To add a piece: copy one <figure class="piece"> block below.
+        - data-category: covers | characters | cards | game
+        - src: the image path, alt: a one-line description of the art
+        - width/height: the image's pixel size (prevents layout jumps)
+      -->
+      <div class="grid" id="grid">
+        <figure class="piece" data-category="covers">
+          <button type="button" class="piece-open" aria-label="View Romantasy couple full size">
+            <img src="images/covers/romantasy.jpg" alt="Romantasy cover: two figures under a rose-gold sky" width="1200" height="1800" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Romantasy couple</span><span class="piece-meta">Mock cover, 6 × 9 in</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="covers">
+          <button type="button" class="piece-open" aria-label="View Epic fantasy hero full size">
+            <img src="images/covers/epic-fantasy.jpg" alt="Epic fantasy cover: a hero before a vast mountain range" width="1200" height="1800" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Epic fantasy hero</span><span class="piece-meta">Mock cover, 6 × 9 in</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="characters">
+          <button type="button" class="piece-open" aria-label="View Character sheet full size">
+            <img src="images/characters/character-sheet.jpg" alt="Character sheet with front and back views, expressions and colour options" width="1800" height="1200" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Character sheet</span><span class="piece-meta">Turnaround, expressions, colour options</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="covers">
+          <button type="button" class="piece-open" aria-label="View Space opera full size">
+            <img src="images/covers/space-opera.jpg" alt="Space opera cover: a ringed planet rising over a dark moon" width="1200" height="1800" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Space opera</span><span class="piece-meta">Mock cover, 6 × 9 in</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="cards">
+          <button type="button" class="piece-open" aria-label="View Oracle card full size">
+            <img src="images/cards/oracle-card.jpg" alt="Oracle card illustration in gold and violet" width="1000" height="1400" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Oracle card</span><span class="piece-meta">Card art, 70 × 120 mm</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="covers">
+          <button type="button" class="piece-open" aria-label="View Mahabharata retelling full size">
+            <img src="images/covers/mythology-retelling.jpg" alt="Mythology retelling cover in saffron and gold" width="1200" height="1800" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Mahabharata retelling</span><span class="piece-meta">Mock cover, 6 × 9 in</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="characters">
+          <button type="button" class="piece-open" aria-label="View Ajira, SURI: The Seventh Note full size">
+            <img src="images/characters/ajira-suri.jpg" alt="Ajira, the main character of SURI: The Seventh Note" width="1200" height="1600" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Ajira, SURI: The Seventh Note</span><span class="piece-meta">Game character, Tathvamasi Studios</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="covers">
+          <button type="button" class="piece-open" aria-label="View Dark fantasy villain full size">
+            <img src="images/covers/dark-fantasy.jpg" alt="Dark fantasy cover: a pale moon over black peaks" width="1200" height="1800" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Dark fantasy villain</span><span class="piece-meta">Mock cover, 6 × 9 in</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="game">
+          <button type="button" class="piece-open" aria-label="View SURI environment full size">
+            <img src="images/game/suri-environment.jpg" alt="Environment art from SURI: The Seventh Note at sunset" width="1920" height="1080" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">SURI environment</span><span class="piece-meta">Game environment, Tathvamasi Studios</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="covers">
+          <button type="button" class="piece-open" aria-label="View Series set, book one full size">
+            <img src="images/covers/series-book-one.jpg" alt="Series cover, book one, in amber and blue" width="1200" height="1800" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Series set, book one</span><span class="piece-meta">Mock cover, 6 × 9 in</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="cards">
+          <button type="button" class="piece-open" aria-label="View Trading card illustration full size">
+            <img src="images/cards/tcg-card.jpg" alt="Trading card illustration in sea green" width="1000" height="1400" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Trading card illustration</span><span class="piece-meta">Card art, 63 × 88 mm</span></figcaption>
+        </figure>
+
+        <figure class="piece" data-category="covers">
+          <button type="button" class="piece-open" aria-label="View Series set, book two full size">
+            <img src="images/covers/series-book-two.jpg" alt="Series cover, book two, in violet and rose" width="1200" height="1800" loading="lazy">
+          </button>
+          <figcaption><span class="piece-title">Series set, book two</span><span class="piece-meta">Mock cover, 6 × 9 in</span></figcaption>
+        </figure>
+      </div>
+
+      <p class="more-link"><a href="https://www.artstation.com/siddeshthaly" rel="noopener">More work on ArtStation</a></p>
+    </div>
+  </section>
+
+  <!-- COMMISSIONS -->
+  <section class="paper commissions" id="commissions" aria-labelledby="commissions-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="commissions-title">Commissions</h2>
+        <p>Prices are in US dollars. Every package includes full-resolution files and commercial rights to use the art for your book and its marketing.</p>
+      </div>
+
+      <div class="packages">
+        <article class="package">
+          <h3>Ebook cover art</h3>
+          <p class="price"><span>from</span> $220</p>
+          <ul>
+            <li>Painted front cover at ebook size</li>
+            <li>One character or key object</li>
+            <li>Simple atmospheric background</li>
+            <li>Two rounds of revisions</li>
+            <li>About two weeks</li>
+          </ul>
+        </article>
+        <article class="package package-featured">
+          <h3>Illustrated cover</h3>
+          <p class="price"><span>from</span> $380</p>
+          <ul>
+            <li>Full painted scene</li>
+            <li>Up to two characters</li>
+            <li>Title and author typography</li>
+            <li>Three rounds of revisions</li>
+            <li>About three weeks</li>
+          </ul>
+        </article>
+        <article class="package">
+          <h3>Full print wrap</h3>
+          <p class="price"><span>from</span> $650</p>
+          <ul>
+            <li>Everything in the illustrated cover</li>
+            <li>Front, spine and back for paperback</li>
+            <li>Ebook and audiobook versions</li>
+            <li>Three rounds of revisions</li>
+            <li>About four weeks</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="process">
+        <h3>How a commission works</h3>
+        <ol class="steps">
+          <li><p><strong>Brief.</strong> You send the form below. I reply within two working days with a quote and a timeline.</p></li>
+          <li><p><strong>Thumbnails.</strong> Three rough compositions. You pick one, or mix them.</p></li>
+          <li><p><strong>Colour.</strong> A colour study so we agree on mood and light before I render.</p></li>
+          <li><p><strong>Final render.</strong> The full painting, with your revision rounds.</p></li>
+          <li><p><strong>Files.</strong> Typography, then files sized for ebook, print and audiobook.</p></li>
+        </ol>
+        <p class="terms">Payment is 50% to start and 50% before final files are delivered.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="wrap about-inner">
+      <img class="about-photo" src="images/sid-portrait.jpg" alt="Portrait of Sid Thaly" width="900" height="1125">
+      <div class="about-text">
+        <h2 id="about-title">About</h2>
+        <p>I’m Sid Thaly, an illustrator based in Goa, India. I spent six years painting characters and worlds for games, most recently <em>SURI: The Seventh Note</em>, a hand-drawn rhythm platformer set in a mythical India.</p>
+        <p>Now I paint covers for authors who want the outside of their book to feel like the story inside it. I’m strongest at colour, light and metal, and at designing characters that hold up across a whole series.</p>
+        <p>I studied Game and Interactive Media Design at Rubika. I work in English with authors in the US, UK and Australia, and I can overlap with your working hours for calls.</p>
+        <ul class="about-links">
+          <li><a href="https://www.artstation.com/siddeshthaly" rel="noopener">ArtStation</a></li>
+          <li><a href="https://www.linkedin.com/in/siddeshthaly" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/siddeshthaly" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIEF / CONTACT -->
+  <section class="paper brief" id="brief" aria-labelledby="brief-title">
+    <div class="wrap brief-inner">
+      <div class="section-head">
+        <h2 id="brief-title">Request a quote</h2>
+        <p>Tell me about your book. I reply within two working days. You can also email <a href="mailto:hello@sidthaly.com">hello@sidthaly.com</a>.</p>
+      </div>
+
+      <!-- Replace YOUR_FORM_ID with the ID from formspree.io (see README) -->
+      <form class="brief-form" id="brief-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-title">Book title</label>
+          <input id="f-title" name="book_title" type="text" placeholder="Working title is fine">
+        </div>
+        <div class="field">
+          <label for="f-genre">Genre</label>
+          <select id="f-genre" name="genre">
+            <option>Epic fantasy</option>
+            <option>Romantasy</option>
+            <option>Dark fantasy</option>
+            <option>Science fiction</option>
+            <option>Mythology retelling</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <fieldset class="field">
+          <legend>Is it part of a series?</legend>
+          <div class="choices">
+            <label><input type="radio" id="f-series-yes" name="series" value="Yes"> Yes</label>
+            <label><input type="radio" id="f-series-no" name="series" value="No" checked> No</label>
+          </div>
+        </fieldset>
+        <fieldset class="field">
+          <legend>Formats you need</legend>
+          <div class="choices">
+            <label><input type="checkbox" id="f-ebook" name="formats" value="Ebook" checked> Ebook</label>
+            <label><input type="checkbox" id="f-print" name="formats" value="Print wrap"> Print wrap</label>
+            <label><input type="checkbox" id="f-audio" name="formats" value="Audiobook"> Audiobook</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-deadline">When do you need it?</label>
+          <input id="f-deadline" name="deadline" type="text" placeholder="For example, before a March launch">
+        </div>
+        <div class="field">
+          <label for="f-budget">Budget</label>
+          <select id="f-budget" name="budget">
+            <option>$200 to $400</option>
+            <option>$400 to $700</option>
+            <option>$700 to $1,000</option>
+            <option>Over $1,000</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field field-wide">
+          <label for="f-message">About the book</label>
+          <textarea id="f-message" name="message" rows="5" placeholder="The story in a few lines, the main character, and the mood you want the cover to have." required></textarea>
+        </div>
+        <div class="field field-wide">
+          <label for="f-refs">Reference links <span class="optional">(optional)</span></label>
+          <input id="f-refs" name="references" type="text" placeholder="Covers you love, a Pinterest board, your author site">
+        </div>
+        <div class="form-foot field-wide">
+          <button type="submit" class="btn">Send brief</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <a class="wordmark" href="#top">Sid Thaly</a>
+    <p><a href="mailto:hello@sidthaly.com">hello@sidthaly.com</a></p>
+    <p class="fine">All artwork © <span id="year">2026</span> Sid Thaly. Not licensed for AI training.</p>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Artwork viewer">
+  <figure class="lightbox-figure">
+    <img id="lightbox-img" src="" alt="">
+    <figcaption id="lightbox-caption"></figcaption>
+  </figure>
+  <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Previous piece">‹</button>
+  <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Next piece">›</button>
+  <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Close viewer">×</button>
+</dialog>
+
+<script src="js/main.js"></script>
+</body>
+</html>
