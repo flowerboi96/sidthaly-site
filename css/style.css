@@ -6,6 +6,10 @@
 @font-face { font-family: "Anton"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/anton-latin-400.woff2") format("woff2"); }
 @font-face { font-family: "Archivo"; font-style: normal; font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; src: url("../fonts/archivo-latin-variable.woff2") format("woff2-variations"), url("../fonts/archivo-latin-variable.woff2") format("woff2"); }
 
+/* Rupee sign only (the main files are Latin-only); tiny, loaded when ₹ appears */
+@font-face { font-family: "Anton"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/anton-rupee.woff2") format("woff2"); unicode-range: U+20B9; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; src: url("../fonts/archivo-rupee.woff2") format("woff2"); unicode-range: U+20B9; }
+
 :root {
   --ink: #0C0C10;          /* page background */
   --bone: #ECE6DE;         /* text on dark, light band */
@@ -159,7 +163,7 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 .pk-top .wide { font-size: 11px; font-weight: 700; color: var(--band-muted); white-space: nowrap; }
 .price { display: flex; align-items: baseline; gap: 10px; }
 .price .wide { font-size: 11px; color: var(--band-muted); }
-.price .display { font-size: clamp(80px, 7.2vw, 104px); }
+.price .display { font-size: clamp(72px, 6.4vw, 94px); }
 .package > p:last-child { font-size: 15px; color: var(--band-text); }
 .featured .pk-top .wide, .featured .price .wide, .featured > p:last-child { color: var(--ink); }
 .comm-foot { display: flex; justify-content: space-between; align-items: center; gap: 16px 30px; flex-wrap: wrap; border-top: 1px solid rgba(12, 12, 16, .2); padding-top: 22px; }
@@ -199,6 +203,63 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 .foot-logo img { height: 96px; width: auto; }
 .fine { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 11px; font-weight: 700; color: var(--muted); }
 
+
+/* ---------- SHOP TEASER (home) ---------- */
+.shop-teaser { border-top: 1px solid var(--rule); padding: 80px var(--gut) 90px; display: flex; flex-direction: column; gap: 36px; }
+.teaser-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px 40px; flex-wrap: wrap; }
+.teaser-head .label { margin-bottom: 10px; }
+.teaser-head > p { max-width: 400px; }
+.teaser-row { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.mini-product { display: flex; flex-direction: column; gap: 6px; text-decoration: none; }
+.p-visual { aspect-ratio: 4 / 5; display: grid; place-items: center; position: relative; overflow: hidden; border: 1px solid var(--rule); background: #121016 radial-gradient(circle at 50% 62%, rgba(255, 45, 67, .14), rgba(255, 45, 67, 0) 62%); margin-bottom: 8px; transition: border-color .25s ease; }
+.mini-product:hover .p-visual, .product:hover .p-visual { border-color: rgba(255, 45, 67, .7); }
+.mini-product:hover { color: var(--bone); }
+.mp-name { font-size: 18px; font-weight: 600; line-height: 1.3; }
+.mp-meta { font-size: 11px; font-weight: 700; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.teaser-cta { align-self: flex-end; }
+
+/* Product mock-ups, drawn from the artwork with CSS */
+.print-frame { display: block; width: 52%; padding: 5%; background: #F4F1EC; box-shadow: 0 24px 50px rgba(0, 0, 0, .6); line-height: 0; }
+.print-frame img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; }
+.sticker-stack, .bookmark-trio, .postcard-fan, .deck-tease { position: relative; width: 78%; aspect-ratio: 1; display: block; }
+.sticker-stack img { position: absolute; width: 50%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 5px solid #F4F1EC; box-shadow: 0 14px 30px rgba(0, 0, 0, .55); }
+.sticker-stack img:nth-child(1) { left: 2%; top: 8%; }
+.sticker-stack img:nth-child(2) { left: 44%; top: 2%; width: 44%; }
+.sticker-stack img:nth-child(3) { left: 26%; top: 46%; width: 46%; }
+.sticker-stack img:only-child, .sticker-stack img:nth-child(2):last-child { left: 40%; top: 36%; }
+.bookmark-trio { display: flex; justify-content: center; align-items: center; gap: 7%; }
+.bookmark-trio img { width: 21%; aspect-ratio: 1 / 3; object-fit: cover; border: 3px solid #F4F1EC; border-radius: 4px; box-shadow: 0 16px 34px rgba(0, 0, 0, .55); }
+.bookmark-trio img:nth-child(2) { transform: translateY(-8%); }
+.postcard-fan img { position: absolute; width: 70%; aspect-ratio: 3 / 2; object-fit: cover; border: 4px solid #F4F1EC; box-shadow: 0 16px 34px rgba(0, 0, 0, .55); }
+.postcard-fan img:nth-child(1) { left: 2%; top: 12%; transform: rotate(-6deg); }
+.postcard-fan img:nth-child(2) { left: 16%; top: 32%; transform: rotate(3deg); }
+.postcard-fan img:nth-child(3) { left: 28%; top: 52%; transform: rotate(-2deg); }
+.deck-tease { display: grid; place-items: center; }
+.deck-tease img { width: 52%; aspect-ratio: 5 / 7; object-fit: cover; border-radius: 8px; border: 3px solid #F4F1EC; box-shadow: 10px 10px 0 -2px #2A1016, 20px 20px 0 -4px #1C0B10, 0 30px 60px rgba(0, 0, 0, .6); }
+
+/* ---------- SHOP PAGE ---------- */
+.shop-hero { padding-bottom: 60px; }
+.shop-cats { margin-top: 60px; padding: 0 var(--gut); display: flex; flex-wrap: wrap; gap: 8px; }
+a.pill { display: inline-flex; align-items: center; text-decoration: none; }
+a.pill:hover { color: var(--bone); border-color: var(--red); }
+.shop-group { border-top: 1px solid var(--rule); padding: 64px var(--gut) 72px; display: flex; flex-direction: column; gap: 30px; scroll-margin-top: 12px; }
+.group-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px 30px; flex-wrap: wrap; }
+.group-head > p { font-size: 15px; }
+.products { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 20px; }
+.product { display: flex; flex-direction: column; gap: 14px; }
+.product .p-visual { margin-bottom: 0; }
+.p-info { display: flex; flex-direction: column; gap: 4px; }
+.p-info h3 { font-size: 20px; font-weight: 600; line-height: 1.3; }
+.p-meta { font-size: 11px; font-weight: 700; color: var(--muted); }
+.p-price { font-family: var(--display); font-size: 34px; line-height: 1; margin-top: 8px; display: flex; align-items: baseline; gap: 8px; }
+.p-price .wide { font-size: 11px; color: var(--muted); }
+.p-order { align-self: flex-start; height: 46px; padding: 0 22px; font-size: 11px; }
+.deck { scroll-margin-top: 12px; }
+.deck .c-oracle { left: 14%; top: 10%; width: 28%; transform: rotate(-4deg); }
+.c-deck2 { left: 36%; top: 16%; width: 28%; transform: rotate(5deg); }
+.order-steps { border-top: 1px solid var(--rule); padding-top: 64px; }
+.order-title { grid-column: 1 / -1; }
+
 /* ---------- LIGHTBOX ---------- */
 .lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; color: var(--bone); }
 .lightbox::backdrop { background: rgba(8, 8, 11, .93); }
@@ -220,6 +281,7 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
   .beyond-text { order: -1; }
   .packages { grid-template-columns: minmax(0, 1fr); }
   .about { grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 44px; }
+  .teaser-row, .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 820px) {
@@ -293,6 +355,23 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
   .site-footer { padding: 30px var(--gut) 22px; gap: 14px; }
   .fine { font-size: 10px; }
   .lb-figure { padding: 70px 14px 90px; }
+  .shop-teaser { padding: 44px var(--gut) 52px; gap: 24px; }
+  .teaser-row { gap: 12px; }
+  .mp-name { font-size: 15px; }
+  .mp-meta { font-size: 10px; }
+  .teaser-cta { align-self: stretch; }
+  .shop-hero { padding-bottom: 40px; }
+  .shop-cats { margin-top: 36px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .shop-cats::-webkit-scrollbar { display: none; }
+  .shop-group { padding: 40px var(--gut) 48px; gap: 20px; }
+  .products { gap: 28px 12px; }
+  .p-info h3 { font-size: 15px; }
+  .p-meta { font-size: 10px; }
+  .p-price { font-size: 26px; }
+  .p-order { align-self: stretch; padding: 0 10px; }
+  .order-steps { padding-top: 40px; }
+  .order-steps .proof-item { flex-direction: column; gap: 6px; }
+  .order-steps .proof-item > span:last-child { display: block; }
   .lb-prev, .lb-next { top: auto; bottom: 20px; transform: none; }
   .lb-prev { left: calc(50% - 60px); }
   .lb-next { right: calc(50% - 60px); }

@@ -7,7 +7,8 @@ runs anywhere and is easy to edit with Claude Code.
 ## Folder layout
 
 ```
-index.html          the whole Phase 1 site (one page)
+index.html          the home page (work, commissions, about, quote form)
+shop.html           the shop: prints, stickers, bookmarks, postcards, oracle deck
 css/style.css       all styles; colours and fonts are set at the top
 js/main.js          phone menu, cover carousel and filters, full-size viewer, quote form
 fonts/              self-hosted Anton and Archivo (open licence)
@@ -46,6 +47,20 @@ size printed in the bottom-right corner.
 Or ask Claude Code: "Add images/covers/ember-queen.jpg as a book cover called
 Ember Queen, romantasy, 6 × 9 in."
 
+## The shop (shop.html)
+
+- Each product is one `<li class="product">` block: change the image, name,
+  size line and price there. The prices in the file are samples to replace.
+- "Order" opens an email to hello@sidthaly.com with the item filled in.
+  To take payment online, replace that link's `href` with a Razorpay or
+  Instamojo payment link for the product.
+- Don't sell merch of client work (for example SURI art); use your own pieces.
+
+## Commission prices
+
+Prices are in Indian rupees, in the Commissions section of `index.html`
+(the three `class="display"` numbers).
+
 ## Turning on the quote form
 
 1. Create a free account at formspree.io and add a new form.
@@ -69,5 +84,6 @@ and visit http://localhost:8000.
 ## Editing checklist
 
 - Prices and package contents: the Commissions section of `index.html`
+- Shop products and prices: `shop.html`
 - Social links: the About section
 - Colours: the `:root` block at the top of `css/style.css`
