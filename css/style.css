@@ -65,9 +65,13 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 .round-bone:hover { background: #fff; }
 
 /* ---------- HERO ---------- */
-.hero { position: relative; padding-bottom: 40px; background: var(--ink) url("../images/bg/hero-streak.jpg") center 30% / cover no-repeat; }
+.hero { position: relative; isolation: isolate; padding-bottom: 40px; background: var(--ink) url("../images/bg/hero-streak.jpg") center 30% / cover no-repeat; }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12, 12, 16, 0) 55%, var(--ink) 100%); pointer-events: none; }
 .hero > * { position: relative; z-index: 1; }
+
+/* Film grain: a small noise tile drawn at device resolution, so it stays sharp
+   on any screen instead of being stretched with the background image */
+.hero::before, .collage::before, .brief::before { content: ""; position: absolute; inset: 0; background: url("../images/bg/grain.png") repeat; background-size: 96px 96px; mix-blend-mode: overlay; opacity: .9; pointer-events: none; z-index: 0; }
 
 .site-header { height: 96px; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; z-index: 5; }
 .logo { display: block; line-height: 0; }
@@ -120,12 +124,12 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 
 /* ---------- BEYOND ---------- */
 .beyond { border-top: 1px solid var(--rule); padding: 60px var(--gut); display: grid; grid-template-columns: minmax(0, 830fr) minmax(0, 440fr); gap: 60px; align-items: center; }
-.collage { position: relative; aspect-ratio: 830 / 520; background: #120A0D url("../images/bg/arc.jpg") center 20% / cover no-repeat; }
-.collage img { position: absolute; height: auto; box-shadow: 0 30px 60px rgba(0, 0, 0, .6); }
+.collage { position: relative; isolation: isolate; aspect-ratio: 830 / 520; background: #120A0D url("../images/bg/arc.jpg") center 20% / cover no-repeat; }
+.collage img { position: absolute; z-index: 1; height: auto; box-shadow: 0 30px 60px rgba(0, 0, 0, .6); }
 .c-oracle { left: 6%; top: 9.6%; width: 26.5%; }
 .c-sheet { left: 37.3%; top: 23%; width: 50.6%; }
 .c-tcg { left: 78.3%; top: 51.9%; width: 18.1%; }
-.wip { position: absolute; left: 6%; bottom: 20px; display: flex; align-items: center; gap: 8px; font-size: 11px; }
+.wip { position: absolute; z-index: 1; left: 6%; bottom: 20px; display: flex; align-items: center; gap: 8px; font-size: 11px; }
 .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--red); flex: none; }
 .beyond-text { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
 .text-link { text-decoration: underline; text-underline-offset: 3px; }
@@ -163,7 +167,8 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
 .terms { font-weight: 700; color: var(--band-text); }
 
 /* ---------- CONTACT ---------- */
-.brief { padding: 100px var(--gut) 110px; display: flex; flex-direction: column; gap: 44px; background-color: var(--ink); background-image: linear-gradient(rgba(12, 12, 16, .4), rgba(12, 12, 16, .4)), url("../images/bg/glow.jpg"); background-size: cover; background-position: left top; }
+.brief { position: relative; isolation: isolate; padding: 100px var(--gut) 110px; display: flex; flex-direction: column; gap: 44px; background-color: var(--ink); background-image: linear-gradient(rgba(12, 12, 16, .4), rgba(12, 12, 16, .4)), url("../images/bg/glow.jpg"); background-size: cover; background-position: left top; }
+.brief > * { position: relative; z-index: 1; }
 .brief-head { display: flex; flex-direction: column; gap: 12px; }
 .brief-head .display { font-size: min(8.4vw, 120px); line-height: .86; white-space: nowrap; }
 .brief-sub { margin-top: 14px; color: var(--soft); }
@@ -279,7 +284,7 @@ h1, h2, h3, p, figure, ol, ul { margin: 0; }
   .price .display { font-size: 76px; }
   .package > p:last-child { font-size: 14px; }
   .comm-foot { font-size: 10px; }
-  .brief { padding: 44px var(--gut) 56px; gap: 28px; }
+  .brief { position: relative; isolation: isolate; padding: 44px var(--gut) 56px; gap: 28px; }
   .brief-head .display { font-size: 60px; line-height: .88; white-space: normal; }
   .brief-sub { font-size: 15px; margin-top: 10px; }
   .field input, .field select, .field textarea { font-size: 16px; }
