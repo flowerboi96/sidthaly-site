@@ -9,9 +9,11 @@ runs anywhere and is easy to edit with Claude Code.
 ```
 index.html          the whole Phase 1 site (one page)
 css/style.css       all styles; colours and fonts are set at the top
-js/main.js          gallery filter, full-size viewer, quote form
-fonts/              self-hosted Cormorant Garamond and Figtree (open licence)
+js/main.js          phone menu, cover carousel and filters, full-size viewer, quote form
+fonts/              self-hosted Anton and Archivo (open licence)
 images/
+  bg/               grainy nebula backgrounds (hero, "Beyond the cover", quote form)
+  logo/             Sid Thaly logo with the red ink stroke (white and black versions)
   covers/           book covers, 2:3 portrait
   characters/       character sheets and character art
   cards/            card art
@@ -31,14 +33,15 @@ size printed in the bottom-right corner.
    Keep full-resolution originals off the website.
 2. Put the file in the right folder, using lowercase names with hyphens,
    for example `images/covers/ember-queen.jpg`.
-3. In `index.html`, copy an existing `<figure class="piece">` block and change:
+3. In `index.html`, copy an existing `<li class="slide">` block in the carousel and change:
    - `data-category`: `covers`, `characters`, `cards` or `game`
+   - `data-title` and `data-meta`: the name and small line shown under the carousel
    - `src`: the image path
    - `alt`: one line describing the picture (helps search engines and screen readers)
    - `width` and `height`: the image's real pixel size
-   - the title and the small meta line under it
-4. For the hero book, change the cover path in both places marked in `index.html`
-   (the front image and the spine).
+   Keep book covers first. The page opens on the fourth piece.
+4. The "Beyond the cover" collage uses the oracle card, character sheet and
+   trading card images; change their paths in that section.
 
 Or ask Claude Code: "Add images/covers/ember-queen.jpg as a book cover called
 Ember Queen, romantasy, 6 × 9 in."
