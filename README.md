@@ -56,10 +56,10 @@ Ember Queen, romantasy, 6 × 9 in."
   Instamojo payment link for the product.
 - Don't sell merch of client work (for example SURI art); use your own pieces.
 
-## Commission prices
+## Commissions
 
-Prices are in Indian rupees, in the Commissions section of `index.html`
-(the three `class="display"` numbers).
+The Commissions section of `index.html` shows no prices on purpose: each
+commission is quoted to the brief. Prices appear only in the shop.
 
 ## Turning on the quote form
 
@@ -83,7 +83,7 @@ and visit http://localhost:8000.
 
 ## Editing checklist
 
-- Prices and package contents: the Commissions section of `index.html`
+- Commission options and what they include: the Commissions section of `index.html`
 - Shop products and prices: `shop.html`
 - Social links: the About section
 - Colours: the `:root` block at the top of `css/style.css`
