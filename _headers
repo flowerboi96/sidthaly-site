@@ -1,0 +1,10 @@
+# Cloudflare: always check for a fresh copy of pages, styles and scripts,
+# so visitors never see new HTML with an old stylesheet.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/css/*
+  Cache-Control: public, max-age=0, must-revalidate
+/js/*
+  Cache-Control: public, max-age=0, must-revalidate
