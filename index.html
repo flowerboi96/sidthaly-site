@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sid Thaly · Fantasy book covers, painted by hand</title>
 <meta name="description" content="Sid Thaly paints fantasy, mythology, romance and sci-fi book covers and character art by hand for authors and publishers in India. No AI. Request a quote, or shop prints and merch.">
-<meta name="theme-color" content="#0C0C10">
+<meta name="theme-color" content="#0E1018">
 <link rel="canonical" href="https://sidthaly.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sidthaly.com/">
@@ -14,269 +14,78 @@
 <meta property="og:image" content="https://sidthaly.com/images/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/anton-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/archivo-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="images/bg/hero-streak.jpg" as="image">
-<link rel="stylesheet" href="css/style.css?v=20260930">
+<link rel="preload" href="fonts/manufacturing-consent-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/figtree-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="images/bg/galaxy.jpg" as="image">
+<link rel="stylesheet" href="css/v2.css?v=20261008">
+<link rel="stylesheet" href="css/v2-home.css?v=20261008">
 </head>
-<body>
-
+<body style="margin:0;background:#0E1018">
 <a class="skip" href="#work">Skip to the covers</a>
-
-<div class="frame" id="top">
-
-<!-- HERO: name, intro, and the cover carousel on the red streak -->
-<section class="hero">
-  <header class="site-header">
-    <a class="logo" href="#top" aria-label="Sid Thaly, back to top">
-      <img src="images/logo/sidthaly-white-red.svg" alt="" width="92" height="46">
-    </a>
-    <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 6h14M2 12h14"/></svg>
-    </button>
-    <nav class="main-nav" id="main-nav" aria-label="Main">
-      <a class="wide nav-link is-current" href="#work">Work</a>
-      <a class="wide nav-link" href="#commissions">Commissions</a>
-      <a class="wide nav-link" href="#about">About</a>
-      <a class="wide nav-link" href="shop.html">Shop</a>
-      <a class="wide btn btn-bone" href="#brief">Get a quote</a>
-    </nav>
+<div class="site-root">
+<section class="hero" aria-label="Introduction">
+  <span class="s1 wsp"><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg></span><span class="s2 wsp"><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg></span>
+  <div class="wrap">
+  <header class="hd">
+    <a href="index.html" aria-label="Sid Thaly, home"><img src="images/logo/sidthaly-white-red.svg" alt="" width="92" height="46"></a>
+    <nav class="nav lab" id="main-nav" aria-label="Main"><a class="cur" href="#work">Work</a><a href="#commissions">Commissions</a><a href="#about">About</a><a href="shop.html">Shop</a><a class="btn fill " href="#brief"><span class="lab">Get a quote</span></a></nav>
+    <button type="button" class="menu" id="menu-btn" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2 6h14M2 12h14"></path></svg></button>
   </header>
-
-  <h1 class="hero-name"><span>Sid</span> <span>Thaly</span></h1>
-
+  <h1 class="name dsp"><span>Sid</span> <span>Thaly</span></h1>
+  <div class="orn" aria-hidden="true"><span></span><i></i><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg><i></i><span></span></div>
   <div class="intro">
-    <p class="tagline">Fantasy covers,<br>painted <span class="diamond" aria-hidden="true">◆</span> by hand.</p>
     <p class="lede">I paint book covers and characters for authors and publishers across India: fantasy, mythology, romance and sci-fi. Every stroke is mine. No AI at any stage.</p>
-    <div class="actions">
-      <a class="wide btn btn-red" href="#brief">Request a quote</a>
-      <a class="wide btn btn-line" href="#commissions">Commissions</a>
-    </div>
+    <div class="acts"><a class="btn fill " href="#brief"><span class="lab">Request a quote</span></a><a class="btn " href="#commissions"><span class="lab">Commissions</span></a></div>
   </div>
-
-  <!-- COVERS: to add a piece, copy one <li class="slide"> and change
-       data-category (covers | characters | cards | game), data-title, data-meta,
-       the image src, alt, width and height. Covers go first. -->
-  <div class="work" id="work">
-    <div class="work-head">
-      <h2 class="wide label"><span class="num">01</span> Selected work</h2>
-      <div class="filters" role="group" aria-label="Filter work">
-        <button type="button" class="wide pill" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="wide pill" data-filter="covers" aria-pressed="false">Book covers</button>
-        <button type="button" class="wide pill" data-filter="characters" aria-pressed="false">Characters</button>
-        <button type="button" class="wide pill" data-filter="cards" aria-pressed="false">Card art</button>
-        <button type="button" class="wide pill" data-filter="game" aria-pressed="false">Game art</button>
-      </div>
-    </div>
-
-    <ul class="track" id="track" aria-label="Artwork, scroll sideways">
-      <li class="slide" data-category="covers" data-title="Series set, book one" data-meta="Mock cover · 6 × 9 in">
-        <button type="button" class="slide-btn"><img src="images/covers/series-book-one.jpg" alt="Series cover, book one, in amber and blue" width="1200" height="1800"></button>
-      </li>
-      <li class="slide" data-category="covers" data-title="Series set, book two" data-meta="Mock cover · 6 × 9 in">
-        <button type="button" class="slide-btn"><img src="images/covers/series-book-two.jpg" alt="Series cover, book two, in violet and rose" width="1200" height="1800"></button>
-      </li>
-      <li class="slide" data-category="covers" data-title="Romantasy couple" data-meta="Mock cover · 6 × 9 in">
-        <button type="button" class="slide-btn"><img src="images/covers/romantasy.jpg" alt="Romantasy cover: two figures under a rose-gold sky" width="1200" height="1800"></button>
-      </li>
-      <li class="slide" data-category="covers" data-title="Dark fantasy villain" data-meta="Mock cover · 6 × 9 in">
-        <button type="button" class="slide-btn"><img src="images/covers/dark-fantasy.jpg" alt="Dark fantasy cover: a pale moon over black peaks" width="1200" height="1800"></button>
-      </li>
-      <li class="slide" data-category="covers" data-title="Epic fantasy hero" data-meta="Mock cover · 6 × 9 in">
-        <button type="button" class="slide-btn"><img src="images/covers/epic-fantasy.jpg" alt="Epic fantasy cover: a hero before a vast mountain range" width="1200" height="1800"></button>
-      </li>
-      <li class="slide" data-category="covers" data-title="Space opera" data-meta="Mock cover · 6 × 9 in">
-        <button type="button" class="slide-btn"><img src="images/covers/space-opera.jpg" alt="Space opera cover: a ringed planet rising over a dark moon" width="1200" height="1800"></button>
-      </li>
-      <li class="slide" data-category="covers" data-title="Mahabharata retelling" data-meta="Mock cover · 6 × 9 in">
-        <button type="button" class="slide-btn"><img src="images/covers/mythology-retelling.jpg" alt="Mythology retelling cover in saffron and gold" width="1200" height="1800"></button>
-      </li>
-      <li class="slide" data-category="characters" data-title="Character sheet" data-meta="Turnaround, expressions, colour options">
-        <button type="button" class="slide-btn"><img src="images/characters/character-sheet.jpg" alt="Character sheet with front and back views, expressions and colour options" width="1800" height="1200" loading="lazy"></button>
-      </li>
-      <li class="slide" data-category="cards" data-title="Oracle card" data-meta="Card art · 70 × 120 mm">
-        <button type="button" class="slide-btn"><img src="images/cards/oracle-card.jpg" alt="Oracle card illustration in gold and violet" width="1000" height="1400" loading="lazy"></button>
-      </li>
-      <li class="slide" data-category="cards" data-title="Trading card illustration" data-meta="Card art · 63 × 88 mm">
-        <button type="button" class="slide-btn"><img src="images/cards/tcg-card.jpg" alt="Trading card illustration in sea green" width="1000" height="1400" loading="lazy"></button>
-      </li>
-      <li class="slide" data-category="characters" data-title="Ajira" data-meta="Game character · SURI: The Seventh Note">
-        <button type="button" class="slide-btn"><img src="images/characters/ajira-suri.jpg" alt="Ajira, the main character of SURI: The Seventh Note" width="1200" height="1600" loading="lazy"></button>
-      </li>
-      <li class="slide" data-category="game" data-title="SURI environment" data-meta="Game environment · Tathvamasi Studios">
-        <button type="button" class="slide-btn"><img src="images/game/suri-environment.jpg" alt="Environment art from SURI: The Seventh Note at sunset" width="1920" height="1080" loading="lazy"></button>
-      </li>
-    </ul>
-
-    <div class="track-ui">
-      <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
-      <p class="now" aria-live="polite"><span class="now-title" id="now-title">Dark fantasy villain</span><span class="wide now-meta" id="now-meta">Mock cover · 6 × 9 in</span></p>
-      <div class="track-nav">
-        <span class="wide count"><span class="num" id="count-i">04</span> / <span id="count-n">12</span></span>
-        <button type="button" class="round round-line" id="prev" aria-label="Previous piece"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3 5 9l6 6"/></svg></button>
-        <button type="button" class="round round-bone" id="next" aria-label="Next piece"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 3 6 6-6 6"/></svg></button>
-      </div>
-    </div>
+  <div class="wk" id="work"><h2 class="dsp">Selected <span class="red">covers</span></h2><div class="chips lab" role="group" aria-label="Filter work"><button type="button" class="lab" data-filter="all" aria-pressed="true">All</button><button type="button" class="lab" data-filter="covers" aria-pressed="false">Book covers</button><button type="button" class="lab" data-filter="characters" aria-pressed="false">Characters</button><button type="button" class="lab" data-filter="cards" aria-pressed="false">Card art</button><button type="button" class="lab" data-filter="game" aria-pressed="false">Game art</button></div></div>
   </div>
+  <div class="row" id="row" aria-label="Selected covers" tabindex="0">
+    <span class="c"><img src="images/covers/series-book-one.jpg" alt="Series cover, book one"></span>
+    <span class="c d1"><img src="images/covers/romantasy.jpg" alt="Romantasy cover"></span>
+    <span class="c on"><img src="images/covers/epic-fantasy.jpg" alt="Epic fantasy cover"></span>
+    <span class="c d1"><img src="images/covers/space-opera.jpg" alt="Space opera cover"></span>
+    <span class="c"><img src="images/covers/mythology-retelling.jpg" alt="Mythology retelling cover"></span>
+  </div>
+  <div class="wrap"><div class="ctl"><p class="now" id="now-title" aria-live="polite">Epic fantasy hero</p><div class="arr"><button class="btn rb" type="button" aria-label="Previous piece" id="prev"><span class="lab"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3 5 9l6 6"></path></svg></span></button><button class="btn fill rb" type="button" aria-label="Next piece" id="next"><span class="lab"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 3 6 6-6 6"></path></svg></span></button></div></div>
+  <p class="proof lab"><span><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Painted by hand</span><span><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Tested at thumbnail size</span><span><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Quote in two working days</span><span><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Files and rights included</span></p></div>
 </section>
-
-<!-- PROOF -->
-<section class="proof" aria-label="Why authors work with me">
-  <div class="proof-item"><span class="diamond" aria-hidden="true">◆</span><strong>Painted by hand</strong><span>Thumbnails, colour studies and final render, all by me. No AI at any stage.</span></div>
-  <div class="proof-item"><span class="diamond" aria-hidden="true">◆</span><strong>Tested at thumbnail size</strong><span>Every cover is checked at about 100 px, the size readers first see it in a store.</span></div>
-  <div class="proof-item"><span class="diamond" aria-hidden="true">◆</span><strong>Quote in two working days</strong><span>With a timeline you can plan your launch around.</span></div>
-  <div class="proof-item"><span class="diamond" aria-hidden="true">◆</span><strong>Files and rights included</strong><span>Full-resolution files and commercial rights for your book and its marketing.</span></div>
+<div class="wrap">
+<section class="sec" aria-label="Shop">
+  <div class="sh"><h2 class="dsp">Take the art <span class="red">home</span></h2><p>Art prints, stickers and bookmarks from my covers and characters. Ships within India.</p></div>
+  <ul class="minis"><li><a class="mini" href="shop.html"><span class="p-visual"><span class="print-frame"><img src="images/covers/epic-fantasy.jpg" alt=""></span></span><b>Art prints</b><span class="lab">A4 · A3</span></a></li><li><a class="mini" href="shop.html"><span class="p-visual"><span class="sticker-stack"><img src="images/covers/romantasy.jpg" alt=""><img src="images/covers/space-opera.jpg" alt=""></span></span><b>Sticker sheets</b><span class="lab">Matte vinyl</span></a></li><li><a class="mini" href="shop.html"><span class="p-visual"><span class="bookmark-trio"><img src="images/covers/dark-fantasy.jpg" alt=""><img src="images/covers/mythology-retelling.jpg" alt=""><img src="images/covers/series-book-two.jpg" alt=""></span></span><b>Bookmarks</b><span class="lab">Set of three</span></a></li><li><a class="mini" href="shop.html"><span class="p-visual"><span class="deck-tease"><img src="images/cards/oracle-card.jpg" alt=""></span></span><b>Oracle deck</b><span class="lab"><span class="dot" aria-hidden="true"></span>Coming soon</span></a></li></ul>
+  <div class="shop-ft"><a class="btn fill " href="shop.html"><span class="lab">Visit the shop →</span></a></div>
 </section>
-
-<!-- BEYOND THE COVER -->
-<section class="beyond" aria-labelledby="beyond-title">
-  <div class="collage">
-    <img class="c-oracle" src="images/cards/oracle-card.jpg" alt="Oracle card illustration" width="1000" height="1400" loading="lazy">
-    <img class="c-sheet" src="images/characters/character-sheet.jpg" alt="Character sheet" width="1800" height="1200" loading="lazy">
-    <img class="c-tcg" src="images/cards/tcg-card.jpg" alt="Trading card illustration" width="1000" height="1400" loading="lazy">
-    <p class="wide wip"><span class="dot" aria-hidden="true"></span>In progress: an Indian mythology oracle deck</p>
-  </div>
-  <div class="beyond-text">
-    <p class="wide label"><span class="num">02</span> Characters, cards &amp; worlds</p>
-    <h2 class="display" id="beyond-title">Beyond<br>the cover</h2>
-    <p class="muted">Character sheets that hold up across a whole series, card art for decks and games, and the worlds they live in. I’m strongest at colour, light and metal.</p>
-    <a class="wide text-link" href="https://www.artstation.com/siddeshthaly" rel="noopener">More on ArtStation →</a>
-  </div>
+<section class="sec" id="about" aria-label="About">
+  <div class="sh"><h2 class="dsp">The <span class="red">painter</span></h2></div>
+  <div class="about"><span class="por"><img src="images/sid-portrait.jpg" alt="Portrait of Sid Thaly (placeholder)"></span><div><p class="big">I spent six years in game studios, the last four as a Senior Game Artist, painting characters and worlds to a brief and a deadline. Now I paint covers for authors who want their book picked up.</p><p class="m">I hold a master’s in Game and Interactive Media Design from Rubika. I’m based in Goa and work with authors and publishers across India, so we can talk things through on a call in the same time zone.</p><p class="stats lab"><span><span class="n">6+</span>years in game studios</span><span><span class="n">4</span>studios</span><span><span class="n">MA</span>Rubika</span><span>Goa, India</span></p></div></div>
 </section>
-
-<!-- SHOP TEASER: links to shop.html -->
-<section class="shop-teaser" aria-labelledby="shop-teaser-title">
-  <div class="teaser-head">
-    <div>
-      <p class="wide label"><span class="num">03</span> Shop · prints &amp; merch</p>
-      <h2 class="display" id="shop-teaser-title">Take the art home</h2>
-    </div>
-    <p class="muted">Art prints, stickers and bookmarks from my covers and characters. Ships within India.</p>
-  </div>
-  <ul class="teaser-row">
-    <li><a class="mini-product" href="shop.html#prints"><span class="p-visual"><span class="print-frame"><img src="images/covers/epic-fantasy.jpg" alt="" width="1200" height="1800" loading="lazy"></span></span><span class="mp-name">Art prints</span><span class="wide mp-meta">A4 · A3</span></a></li>
-    <li><a class="mini-product" href="shop.html#stationery"><span class="p-visual"><span class="sticker-stack"><img src="images/covers/romantasy.jpg" alt="" width="1200" height="1800" loading="lazy"><img src="images/covers/space-opera.jpg" alt="" width="1200" height="1800" loading="lazy"></span></span><span class="mp-name">Sticker sheets</span><span class="wide mp-meta">Matte vinyl</span></a></li>
-    <li><a class="mini-product" href="shop.html#stationery"><span class="p-visual"><span class="bookmark-trio"><img src="images/covers/dark-fantasy.jpg" alt="" width="1200" height="1800" loading="lazy"><img src="images/covers/mythology-retelling.jpg" alt="" width="1200" height="1800" loading="lazy"><img src="images/covers/series-book-two.jpg" alt="" width="1200" height="1800" loading="lazy"></span></span><span class="mp-name">Bookmarks</span><span class="wide mp-meta">Set of three</span></a></li>
-    <li><a class="mini-product" href="shop.html#deck"><span class="p-visual"><span class="deck-tease"><img src="images/cards/oracle-card.jpg" alt="" width="1000" height="1400" loading="lazy"></span></span><span class="mp-name">Oracle deck</span><span class="wide mp-meta"><span class="dot" aria-hidden="true"></span>Coming soon</span></a></li>
-  </ul>
-  <a class="wide btn btn-red teaser-cta" href="shop.html">Visit the shop →</a>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about" aria-labelledby="about-title">
-  <figure class="about-photo">
-    <img src="images/sid-portrait.jpg" alt="Portrait of Sid Thaly" width="900" height="1125" loading="lazy">
-    <figcaption class="wide">Sid Thaly · Goa, India</figcaption>
-  </figure>
-  <div class="about-text">
-    <h2 class="wide label" id="about-title"><span class="num">04</span> About</h2>
-    <p class="big">I spent six years in game studios, the last four as a Senior Game Artist, painting characters and worlds to a brief and a deadline. Now I paint covers for authors who want their book picked up.</p>
-    <p class="muted">I hold a master’s in Game and Interactive Media Design from Rubika. I’m based in Goa and work with authors and publishers across India, so we can talk things through on a call in the same time zone.</p>
-    <p class="wide stats"><span><span class="num">6+</span> years in game studios</span><span><span class="num">4</span> studios</span><span><span class="num">MA</span> Rubika</span><span>Goa, India</span></p>
-  </div>
-</section>
-
-<!-- COMMISSIONS: no prices here; every commission is quoted to the brief.
-     Prices live only in the shop (shop.html). -->
-<section class="commissions" id="commissions" aria-labelledby="commissions-title">
-  <div class="comm-head">
-    <div>
-      <p class="wide label"><span class="num">05</span> Commissions</p>
-      <h2 class="display" id="commissions-title">Pick your cover</h2>
-    </div>
-    <p>Three ways to work together. Every commission is quoted to your book, and every one comes with full-resolution files and the rights to use the art for your book and its marketing.</p>
-  </div>
-  <div class="packages">
-    <article class="package">
-      <div class="pk-visual" aria-hidden="true"><span class="mock-ebook"><img src="images/covers/space-opera.jpg" alt="" width="1200" height="1800" loading="lazy"></span></div>
-      <p class="wide pk-meta"><span class="num">01</span> About two weeks</p>
-      <h3 class="display pk-title">Ebook<br>cover</h3>
-      <p class="pk-desc">A painted front cover built for online stores. One character or key object in an atmospheric scene, composed to read clearly as a small thumbnail.</p>
-      <ul class="pk-list">
-        <li>Front cover at ebook size</li>
-        <li>Two rounds of revisions</li>
-        <li>Full-resolution files</li>
-      </ul>
-    </article>
-    <article class="package featured">
-      <div class="pk-visual" aria-hidden="true"><span class="mock-titled"><img src="images/covers/dark-fantasy.jpg" alt="" width="1200" height="1800" loading="lazy"><span class="mock-type"><span class="mt-title">Your title</span><span class="mt-author">Author name</span></span></span></div>
-      <p class="wide pk-meta"><span class="num">02</span> About three weeks</p>
-      <h3 class="display pk-title">Illustrated<br>cover</h3>
-      <p class="pk-desc">A full painted scene with up to two characters, finished with your title and author name lettered to match the art. Ready to publish.</p>
-      <ul class="pk-list">
-        <li>Full scene, up to two characters</li>
-        <li>Title and author typography</li>
-        <li>Three rounds of revisions</li>
-      </ul>
-    </article>
-    <article class="package">
-      <div class="pk-visual" aria-hidden="true"><span class="mock-wrap"><span class="mw-back"><img src="images/covers/epic-fantasy.jpg" alt="" width="1200" height="1800" loading="lazy"><span class="mw-lines"><span></span><span></span><span></span><span></span></span></span><span class="mw-spine"><span>Your title</span></span><span class="mw-front"><img src="images/covers/epic-fantasy.jpg" alt="" width="1200" height="1800" loading="lazy"></span></span></div>
-      <p class="wide pk-meta"><span class="num">03</span> About four weeks</p>
-      <h3 class="display pk-title">Full print<br>wrap</h3>
-      <p class="pk-desc">The whole book jacket: front, spine and back as one painting for your paperback, plus ebook and audiobook versions cut from the same art.</p>
-      <ul class="pk-list">
-        <li>Front, spine and back</li>
-        <li>Ebook and audiobook versions</li>
-        <li>Three rounds of revisions</li>
-      </ul>
-    </article>
-  </div>
-  <div class="comm-foot">
-    <ol class="wide steps">
-      <li><span class="num">01</span> Brief</li><li><span class="num">02</span> Thumbnails</li><li><span class="num">03</span> Colour</li><li><span class="num">04</span> Final render</li><li><span class="num">05</span> Files</li>
-    </ol>
-    <a class="wide btn btn-ink" href="#brief">Get a quote for your book →</a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="brief" id="brief" aria-labelledby="brief-title">
-  <div class="brief-head">
-    <p class="wide label"><span class="num">06</span> Request a quote</p>
-    <h2 class="display" id="brief-title">Tell me <span class="red">about</span> your book</h2>
-    <p class="brief-sub">I reply within two working days with a quote and a timeline. Or email <a href="mailto:hello@sidthaly.com">hello@sidthaly.com</a>.</p>
-  </div>
-
-  <!-- Replace YOUR_FORM_ID with the ID from formspree.io (see README) -->
-  <form class="brief-form" id="brief-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <div class="col">
-      <div class="field"><label class="wide" for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-      <div class="field"><label class="wide" for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label class="wide" for="f-genre">Genre</label>
-        <select id="f-genre" name="genre">
-          <option>Mythology retelling</option><option>Epic fantasy</option><option>Romance / romantasy</option><option>Dark fantasy</option><option>Science fiction</option><option>Children’s book</option><option>Other</option>
-        </select>
-      </div>
-    </div>
-    <div class="field field-msg"><label class="wide" for="f-message">About the book</label><textarea id="f-message" name="message" rows="6" placeholder="The story in a few lines, the main character, and the mood you want the cover to have." required></textarea></div>
-    <div class="form-foot">
-      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-      <button type="submit" class="wide btn btn-red">Send brief →</button>
-    </div>
-  </form>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-row">
-    <nav class="foot-nav" aria-label="Footer"><a class="wide" href="#work">Work</a><a class="wide" href="#commissions">Commissions</a><a class="wide" href="#about">About</a><a class="wide" href="shop.html">Shop</a></nav>
-    <a class="foot-logo" href="#top" aria-label="Sid Thaly, back to top"><img src="images/logo/sidthaly-white-red.svg" alt="" width="192" height="96" loading="lazy"></a>
-    <nav class="foot-nav foot-right" aria-label="Elsewhere"><a class="wide" href="https://www.artstation.com/siddeshthaly" rel="noopener">ArtStation</a><a class="wide" href="https://www.instagram.com/siddeshthaly" rel="noopener">Instagram</a><a class="wide" href="mailto:hello@sidthaly.com">hello@sidthaly.com</a></nav>
-  </div>
-  <div class="wide fine"><span>© <span id="year">2026</span> Sid Thaly</span><span>Not licensed for AI training</span></div>
-</footer>
-
 </div>
-
-<dialog class="lightbox" id="lightbox" aria-label="Artwork viewer">
-  <figure class="lb-figure">
-    <img id="lb-img" src="" alt="">
-    <figcaption id="lb-caption"></figcaption>
-  </figure>
-  <button type="button" class="round round-line lb-prev" id="lb-prev" aria-label="Previous piece"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3 5 9l6 6"/></svg></button>
-  <button type="button" class="round round-line lb-next" id="lb-next" aria-label="Next piece"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 3 6 6-6 6"/></svg></button>
-  <button type="button" class="round round-bone lb-close" id="lb-close" aria-label="Close viewer"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
-</dialog>
-
-<script src="js/main.js?v=20260930"></script>
+<section class="paper" id="commissions" aria-label="Commissions"><div class="wrap">
+  <div class="sh"><h2 class="dsp">Pick your <span class="red">cover</span></h2><p>Three ways to work together, each quoted to your book.</p></div>
+  <div class="comm">
+  <article class="card "><div class="vis"><img class="" src="images/covers/space-opera.jpg" alt=""></div><span class="lab meta">About two weeks</span><h3>Ebook cover</h3><p class="d">A painted front cover built for online stores. One character or key object in an atmospheric scene, composed to read clearly as a small thumbnail.</p><ul><li><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Front cover at ebook size</li><li><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Two rounds of revisions</li><li><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Full-resolution files</li></ul></article>
+  <article class="card hl"><div class="vis"><img class="" src="images/covers/dark-fantasy.jpg" alt=""></div><span class="lab meta">About three weeks</span><h3>Illustrated cover</h3><p class="d">A full painted scene with up to two characters, finished with your title and author name lettered to match the art. Ready to publish.</p><ul><li><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Full scene, up to two characters</li><li><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Title and author typography</li><li><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Three rounds of revisions</li></ul></article>
+  <article class="card "><div class="vis"><img class="w" src="images/covers/epic-fantasy.jpg" alt=""></div><span class="lab meta">About four weeks</span><h3>Full print wrap</h3><p class="d">The whole book jacket: front, spine and back as one painting for your paperback, plus ebook and audiobook versions cut from the same art.</p><ul><li><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Front, spine and back</li><li><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Ebook and audiobook versions</li><li><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg>Three rounds of revisions</li></ul></article>
+  </div>
+  <ol class="rites " style="--n:5" aria-label="Steps"><li><span class="med"><span class="spk-top"><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg></span><span class="num">I</span></span><b>Brief</b><span class=m>Your story, characters and mood.</span></li><li><span class="med"><span class="spk-top"><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg></span><span class="num">II</span></span><b>Thumbnails</b><span class=m>Small compositions to choose from.</span></li><li><span class="med"><span class="spk-top"><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg></span><span class="num">III</span></span><b>Colour</b><span class=m>A colour study of the chosen idea.</span></li><li><span class="med"><span class="spk-top"><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg></span><span class="num">IV</span></span><b>Final render</b><span class=m>The full painting, with your revisions.</span></li><li><span class="med"><span class="spk-top"><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg></span><span class="num">V</span></span><b>Files</b><span class=m>Print and ebook files, ready to publish.</span></li></ol>
+  <div class="comm-ft"><a class="btn fill " href="#brief"><span class="lab">Get a quote for your book →</span></a></div>
+</div></section>
+<section class="quote" id="brief" aria-labelledby="q-t"><div class="wrap">
+  <h2 class="dsp" id="q-t">Tell me about <span class="red">your book</span></h2>
+  <p class="sub">I reply within two working days. Or email <a href="mailto:hello@sidthaly.com">hello@sidthaly.com</a>.</p>
+  <form class="form" id="brief-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <div class="col"><div class="fld"><label class="lab" for="q-n">Your name</label><input id="q-n" name="name" type="text" autocomplete="name" required></div><div class="fld"><label class="lab" for="q-e">Email</label><input id="q-e" name="email" type="email" autocomplete="email" required></div><div class="fld"><label class="lab" for="q-g">Genre</label><select id="q-g" name="genre"><option>Mythology retelling</option><option>Epic fantasy</option><option>Romance / romantasy</option><option>Dark fantasy</option><option>Science fiction</option><option>Children’s book</option></select></div></div>
+    <div class="fld"><label class="lab" for="q-m">About the book</label><textarea id="q-m" name="message" required placeholder="The story in a few lines, the main character, and the mood you want the cover to have."></textarea></div>
+    <p class="form-status" id="form-status" role="status" aria-live="polite"></p><button class="btn fill send" type="submit"><span class="lab">Send brief →</span></button>
+  </form>
+</div></section>
+<footer class="wrap"><div class="ft">
+  <div class="orn" aria-hidden="true"><span></span><i></i><svg class="spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.7 8.6 15.4 11.3 24 12C15.4 12.7 12.7 15.4 12 24C11.3 15.4 8.6 12.7 0 12C8.6 11.3 11.3 8.6 12 0Z" fill="currentColor"></path></svg><i></i><span></span></div>
+  <img src="images/logo/sidthaly-white-red.svg" alt="Sid Thaly" width="192" height="96">
+  <nav class="lab" aria-label="Footer"><a href="#work">Work</a><a href="#commissions">Commissions</a><a href="#about">About</a><a href="shop.html">Shop</a><a href="https://www.artstation.com/siddeshthaly">ArtStation</a><a href="https://www.instagram.com/siddeshthaly">Instagram</a><a href="mailto:hello@sidthaly.com">Email</a></nav>
+  <p class="fine lab"><span>© 2026 Sid Thaly</span><span>Not licensed for AI training</span></p>
+</div></footer>
+</div>
+<script src="js/v2.js?v=20261008" defer></script>
 </body>
 </html>
