@@ -103,3 +103,5 @@
  .form{grid-template-columns:minmax(0,1fr);gap:16px}
  .send{grid-column:1;justify-self:stretch}
 }
+.quote{background-image:url("../images/bg/grain.png"),url("../images/bg/galaxy.jpg");background-size:96px 96px,cover;background-repeat:repeat,no-repeat;background-position:0 0,center 80%;background-blend-mode:overlay,normal}
+@media (max-width:820px){.quote{background-image:url("../images/bg/grain.png"),url("../images/bg/galaxy-m.jpg");background-position:0 0,center top}}

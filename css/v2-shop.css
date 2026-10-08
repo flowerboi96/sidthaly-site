@@ -56,3 +56,5 @@
  .custom{flex-direction:column;gap:14px;text-align:center;margin-top:36px}
  .custom .btn{width:100%}
 }
+.deck{background-image:url("../images/bg/grain.png"),url("../images/bg/galaxy.jpg");background-size:96px 96px,cover;background-repeat:repeat,no-repeat;background-position:0 0,center 60%;background-blend-mode:overlay,normal}
+@media (max-width:820px){.deck{background-image:url("../images/bg/grain.png"),url("../images/bg/galaxy-m.jpg");background-position:0 0,center top}}
