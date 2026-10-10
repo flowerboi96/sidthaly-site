@@ -3,6 +3,7 @@
 @font-face{font-family:"Archivo";font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url("../fonts/archivo-latin-variable.woff2") format("woff2-variations"),url("../fonts/archivo-latin-variable.woff2") format("woff2")}
 @font-face{font-family:"Anton";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/anton-rupee.woff2") format("woff2");unicode-range:U+20B9}
 @font-face{font-family:"Archivo";font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url("../fonts/archivo-rupee.woff2") format("woff2");unicode-range:U+20B9}
+@font-face{font-family:"Manufacturing Consent";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/manufacturing-consent-latin-400.woff2") format("woff2")}
 
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0}h1,h2,h3,p,ul,ol,figure{margin:0}
@@ -77,6 +78,9 @@ a{color:inherit}
 .ft .orn{width:100%}
 .ft nav{display:flex;gap:34px}.ft nav a{text-decoration:none}
 .fine{display:flex;justify-content:space-between;width:100%;color:var(--muted);margin-top:8px}
+
+/* red heading words: Version 2 gothic, mixed with Anton */
+.dsp .red{font-family:'Manufacturing Consent',serif;text-transform:none;font-size:1.12em;line-height:.8;letter-spacing:0;font-weight:400}
 
 @media (max-width: 820px){
  .site-root{font-size:16px}
