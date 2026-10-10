@@ -138,6 +138,13 @@ h1.dsp,h2.dsp,h3.dsp{transform:none;margin-top:0}
 .hd{height:auto;padding:30px 0 18px}
 .hd > a svg,.hd > a img{height:230px;width:auto;aspect-ratio:6801/3500;display:block;overflow:visible}
 .shop-h{margin-top:40px !important}
+/* hero intro: no duplicate buttons; wider, larger description with role pointers */
+.site-root .intro{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:70px;align-items:start;padding-top:34px}
+.site-root .intro .lede{font-size:25px;line-height:1.45;max-width:820px;color:var(--bone)}
+.roles{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column}
+.roles li{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--line2);font-weight:600;font-size:19px}
+.roles li:first-child{border-top:1px solid var(--line2)}
+.roles .spk{width:13px;height:13px}
 
 @media (max-width: 820px){
  .site-root{font-size:16px}
@@ -179,6 +186,11 @@ h1.dsp,h2.dsp,h3.dsp{transform:none;margin-top:0}
  .hd > a svg,.hd > a img{height:112px;width:218px}
  .hero .orn{margin-top:14px !important}
  .shop-h{margin-top:24px !important}
+ .site-root .intro{grid-template-columns:minmax(0,1fr);gap:22px;padding-top:22px}
+ .site-root .intro .lede{font-size:19px;line-height:1.5}
+ .roles{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+ .roles li{font-size:15px;padding:11px 0;gap:10px}
+ .roles li:nth-child(2){border-top:1px solid var(--line2)}
 }
 
 @media (min-width:821px) and (max-width:1180px){
