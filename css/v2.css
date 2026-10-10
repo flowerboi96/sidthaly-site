@@ -3,11 +3,11 @@
 @font-face{font-family:"Archivo";font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url("../fonts/archivo-latin-variable.woff2") format("woff2-variations"),url("../fonts/archivo-latin-variable.woff2") format("woff2")}
 @font-face{font-family:"Anton";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/anton-rupee.woff2") format("woff2");unicode-range:U+20B9}
 @font-face{font-family:"Archivo";font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url("../fonts/archivo-rupee.woff2") format("woff2");unicode-range:U+20B9}
-@font-face{font-family:"Manufacturing Consent";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/manufacturing-consent-latin-400.woff2") format("woff2")}
+@font-face{font-family:"Pirata One";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/pirata-one-latin-400.woff2") format("woff2")}
 
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0}h1,h2,h3,p,ul,ol,figure{margin:0}
-:root{--ink:#0E1018;--ink2:#141722;--red:#E3103E;--hot:#FF2D50;--bone:#EFE6E1;--paper:#ECE5DD;--muted:#AEB3C2;--soft:#D3D3DB;--line:rgba(227,16,62,.78);--line2:rgba(227,16,62,.32);--rule:rgba(239,230,225,.14);--dsp:'Anton',Impact,'Arial Narrow',sans-serif}
+:root{--ink:#0E1018;--ink2:#141722;--red:#E3103E;--hot:#FF2D50;--bone:#EFE6E1;--paper:#ECE5DD;--muted:#AEB3C2;--soft:#D3D3DB;--line:rgba(227,16,62,.78);--line2:rgba(227,16,62,.32);--rule:rgba(239,230,225,.14);--dsp:'Pirata One',serif}
 .site-root{background:var(--ink);color:var(--bone);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .dsp{font-family:var(--dsp);font-weight:400;line-height:.9;text-transform:uppercase}
@@ -130,6 +130,16 @@ a{color:inherit}
 .news input{width:300px;height:50px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--bone);font:inherit;padding:0}
 .news .ns{width:100%;font-size:14px;color:var(--muted);min-height:1em}
 
+/* Version 5 titles: one font (Pirata One caps, stretched tall), white + red */
+.dsp .red{font-family:inherit;text-transform:inherit;font-size:1em;line-height:inherit;letter-spacing:inherit;display:inline;transform:none;white-space:normal}
+h1.dsp,h2.dsp,h3.dsp{letter-spacing:.012em;transform:scaleY(1.2);transform-origin:0 100%;margin-top:.18em}
+.kind .q{font-family:'Pirata One',serif}
+/* header: large logo instead of the giant name */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hd{height:auto;padding:30px 0 18px}
+.hd > a svg,.hd > a img{height:150px;width:auto;aspect-ratio:6801/3500;display:block;overflow:visible}
+.shop-h{margin-top:74px !important}
+
 @media (max-width: 820px){
  .site-root{font-size:16px}
  .wrap{padding:0 20px}
@@ -165,6 +175,11 @@ a{color:inherit}
  .lb-in{padding:16px}
  .lb .lp,.lb .ln{top:auto;bottom:24px}
  .proof{font-size:14px}
+
+ .hd{height:auto;padding:22px 0 12px}
+ .hd > a svg,.hd > a img{height:84px;width:163px}
+ .hero .orn{margin-top:14px !important}
+ .shop-h{margin-top:68px !important}
 }
 
 @media (min-width:821px) and (max-width:1180px){
