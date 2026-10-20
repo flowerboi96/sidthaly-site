@@ -136,7 +136,7 @@ h1.dsp,h2.dsp,h3.dsp{transform:none;margin-top:0}
 /* header: large logo instead of the giant name */
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .hd{height:auto;padding:30px 0 18px}
-.hd > a svg,.hd > a img{height:230px;width:auto;aspect-ratio:6801/3500;display:block;overflow:visible}
+.hd > a svg,.hd > a img{height:210px;width:auto;aspect-ratio:505/238;display:block;overflow:visible}
 .shop-h{margin-top:40px !important}
 /* hero intro: no duplicate buttons; wider, larger description with role pointers */
 .site-root .intro{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:70px;align-items:start;padding-top:34px}
@@ -188,7 +188,7 @@ h1.dsp,h2.dsp,h3.dsp{transform:none;margin-top:0}
  .proof{font-size:14px}
 
  .hd{height:auto;padding:22px 0 12px}
- .hd > a svg,.hd > a img{height:112px;width:218px}
+ .hd > a svg,.hd > a img{height:94px;width:200px}
  .hero .orn{margin-top:14px !important}
  .shop-h{margin-top:24px !important}
  .site-root .intro{grid-template-columns:minmax(0,1fr);gap:22px;padding-top:22px}
