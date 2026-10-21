@@ -230,17 +230,16 @@ h1.dsp,h2.dsp,h3.dsp{transform:none;margin-top:0}
 .hero{background-image:url("../images/bg/grain.png"),url("../images/bg/galaxy.jpg");background-image:url("../images/bg/grain.png"),image-set(url("../images/bg/galaxy.webp") type("image/webp"),url("../images/bg/galaxy.jpg") type("image/jpeg"));background-size:96px 96px,cover;background-repeat:repeat,no-repeat;background-position:0 0,center 30%;background-blend-mode:overlay,normal}
 @media (max-width:820px){.hero{background-image:url("../images/bg/grain.png"),url("../images/bg/galaxy-m.jpg");background-image:url("../images/bg/grain.png"),image-set(url("../images/bg/galaxy-m.webp") type("image/webp"),url("../images/bg/galaxy-m.jpg") type("image/jpeg"));background-position:0 0,center top}}
 
-/* ---- test: IBM Plex Mono for informative text; star-strip skills under a centred, tapering description ---- */
-@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/ibm-plex-mono-latin-400.woff2") format("woff2");size-adjust:106%}
-@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/ibm-plex-mono-latin-500.woff2") format("woff2");size-adjust:106%}
-@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/ibm-plex-mono-latin-600.woff2") format("woff2");size-adjust:106%}
-@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/ibm-plex-mono-latin-700.woff2") format("woff2");size-adjust:106%}
-.site-root{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;line-height:1.7}
-.site-root input,.site-root select,.site-root textarea{font-family:inherit}
-/* titles, questions and numerals stay in Archivo; only the informative text is mono */
-.site-root h3,.site-root summary,.site-root b,.site-root strong,.med .num,.ctl .now{font-family:'Archivo','Helvetica Neue',Arial,sans-serif}
+/* ---- test: wide, light Archivo for informative text (F2); star-strip skills under a centred, tapering description ---- */
+/* "Archivo Text" is the same font file at 90% size, so body copy sits clearly below the titles without touching every font size */
+@font-face{font-family:"Archivo Text";font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;size-adjust:90%;src:url("../fonts/archivo-latin-variable.woff2") format("woff2-variations"),url("../fonts/archivo-latin-variable.woff2") format("woff2")}
+@font-face{font-family:"Archivo Text";font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;size-adjust:90%;src:url("../fonts/archivo-rupee.woff2") format("woff2");unicode-range:U+20B9}
+.site-root{font-family:"Archivo Text","Archivo","Helvetica Neue",Arial,sans-serif;font-stretch:125%;font-weight:330;line-height:1.7;letter-spacing:.005em}
+.site-root input,.site-root select,.site-root textarea{font-family:inherit;font-stretch:inherit;font-weight:inherit}
+/* titles, questions and numerals stay in regular-width Archivo at full size */
+.site-root h3,.site-root summary,.site-root b,.site-root strong,.med .num,.ctl .now{font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-stretch:100%;letter-spacing:0}
 .site-root .intro{display:block}
-.site-root .intro .lede{max-width:none;margin:0 auto;text-align:center;font-size:18px;line-height:1.65}
+.site-root .intro .lede{max-width:none;margin:0 auto;text-align:center;font-size:19px;line-height:1.7;font-weight:300}
 .wk{margin-top:52px}
 .sk-a{display:flex;align-items:center;justify-content:space-between;margin-top:30px;padding:17px 4px;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
 .sk-a span{display:flex;align-items:center;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:18.75px;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
@@ -252,7 +251,7 @@ h1.dsp,h2.dsp,h3.dsp{transform:none;margin-top:0}
  .sk-a .spk{width:12px;height:12px}
 }
 @media (max-width:820px){
- .site-root .intro .lede{font-size:15px;line-height:1.6;text-wrap:balance}
+ .site-root .intro .lede{font-size:15.5px;line-height:1.65;text-wrap:balance}
  .site-root .intro .lede .tb{display:none}
  .wk{margin-top:34px}
  .sk-a{flex-direction:column;align-items:center;gap:11px;margin-top:20px;padding:15px 0}
