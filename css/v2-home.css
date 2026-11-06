@@ -7,7 +7,7 @@
 .acts{display:flex;gap:12px}
 .s1{right:180px;top:170px}.s1 .spk{width:24px;height:24px}.s2{left:46%;top:120px}.s2 .spk{width:14px;height:14px}
 .wk{margin-top:70px;display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
-.wk h2{font-size:min(104px,7.3vw)}
+.wk h2{font-size:min(88px,6.2vw)}
 .wk .chips{padding-bottom:14px}
 .row{display:flex;justify-content:center;align-items:center;gap:min(40px,2.8vw);height:min(700px,48vw);overflow:hidden;margin-top:20px}
 .row .c{flex:none;height:min(470px,32.6vw);cursor:pointer;transition:height .35s ease,opacity .35s ease;aspect-ratio:2/3;overflow:hidden;opacity:.6;box-shadow:0 24px 60px rgba(0,0,0,.55)}
@@ -56,7 +56,7 @@
 .quote{position:relative;padding:120px 0 110px;background:#0A0C14 url("../images/bg/galaxy.jpg") center 80% / cover no-repeat}
 .quote::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,16,24,.55),rgba(14,16,24,.8))}
 .quote > *{position:relative}
-.quote h2{font-size:min(128px,8.9vw);line-height:.9}
+.quote h2{font-size:min(109px,7.57vw);line-height:.9}
 .quote .sub{color:var(--muted);margin-top:20px}
 .form{display:grid;grid-template-columns:400px minmax(0,1fr);gap:20px 60px;margin-top:46px}
 .fld{display:flex;flex-direction:column;gap:2px}
@@ -76,7 +76,7 @@
  .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
  .s1{right:30px;top:120px}.s2{display:none}
  .wk{margin-top:48px;flex-direction:column;align-items:flex-start;gap:14px}
- .wk h2{font-size:clamp(46px,13vw,80px)}
+ .wk h2{font-size:clamp(40px,11vw,68px)}
  .wk .chips{padding-bottom:0}
  .row{height:420px;gap:14px;margin-top:8px}
  .row .c{height:280px}.row .c.on{height:380px}
@@ -99,7 +99,7 @@
  .paper .rites{margin-top:44px}
  .comm-ft{margin-top:36px}.comm-ft .btn{width:100%}
  .quote{padding:70px 0 60px}
- .quote h2{font-size:56px}
+ .quote h2{font-size:48px}
  .form{grid-template-columns:minmax(0,1fr);gap:16px}
  .send{grid-column:1;justify-self:stretch}
 }

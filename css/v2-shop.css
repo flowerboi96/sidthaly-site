@@ -1,7 +1,7 @@
 /* Version 2 · shop page */
 
 .hero{padding-bottom:70px}
-.shop-h{font-size:min(250px,17.4vw);line-height:.86;margin-top:30px;text-shadow:0 20px 60px rgba(0,0,0,.45)}
+.shop-h{font-size:min(212px,14.8vw);line-height:.86;margin-top:30px;text-shadow:0 20px 60px rgba(0,0,0,.45)}
 .hero .orn{margin-top:30px}
 .s-intro{display:flex;justify-content:space-between;align-items:center;gap:40px;padding-top:28px}
 .s-intro p{max-width:560px;color:var(--soft);font-size:19px}
@@ -19,7 +19,7 @@
 .deck::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,16,24,.85) 0%,rgba(14,16,24,.35) 60%,rgba(14,16,24,.2))}
 .deck > .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:60px;align-items:center}
 .deck .soon{display:inline-flex;align-items:center;gap:10px;color:var(--bone)}
-.deck h2{font-size:min(120px,8.4vw);margin-top:18px}
+.deck h2{font-size:min(102px,7.14vw);margin-top:18px}
 .deck p.t{max-width:520px;color:var(--soft);margin:22px 0 30px;font-size:18px}
 .cards2{position:relative;height:440px}
 .cards2 img{position:absolute;width:250px;aspect-ratio:5/7;object-fit:cover;border-radius:10px;border:3px solid #F4F1EC;box-shadow:0 30px 70px rgba(0,0,0,.6)}
@@ -33,7 +33,7 @@
 
 @media (max-width: 820px){
  .hero{padding-bottom:40px}
- .shop-h{font-size:clamp(100px,30vw,200px);margin-top:20px}
+ .shop-h{font-size:clamp(85px,25.5vw,170px);margin-top:20px}
  .s-intro{flex-direction:column;align-items:flex-start;gap:20px}
  .s-intro p{font-size:17px}
  .s1{right:30px;top:110px}.s2{display:none}
@@ -46,7 +46,7 @@
  .prod .btn{align-self:stretch}.prod .btn.sm{height:42px}
  .deck{margin-top:72px;padding:50px 0}
  .deck > .wrap{grid-template-columns:minmax(0,1fr);gap:20px}
- .deck h2{font-size:68px}
+ .deck h2{font-size:58px}
  .deck p.t{font-size:16px;margin:16px 0 22px}
  .cards2{height:250px;order:-1}
  .cards2 img{width:140px}
