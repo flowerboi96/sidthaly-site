@@ -28,7 +28,9 @@
       { src: "images/paintings/doomwraith.jpg", t: "Doomwraith", alt: "Doomwraith, a cloaked figure seen from behind, a green blade glowing against a burning sky", c: "characters" },
       { src: "images/paintings/demona-lisa.jpg", t: "Demona Lisa", alt: "Demona Lisa, a pale horned woman in black holding a white blade", c: "characters" },
       { src: "images/paintings/inahsi-sylvawyrm.jpg", t: "Inahsi Sylvawyrm", alt: "Inahsi Sylvawyrm, a teal-haired woman in a red scarf sitting on a mossy branch high in the clouds", c: "characters" },
-      { src: "images/paintings/x077a-submerged.jpg", t: "X077A Submerged", alt: "X077A, a dark armoured figure lit with gold lights, drifting underwater", c: "characters" }
+      { src: "images/paintings/x077a-submerged.jpg", t: "X077A Submerged", alt: "X077A, a dark armoured figure lit with gold lights, drifting underwater", c: "characters" },
+      { src: "images/paintings/fenrir-kross-hobbit-hunter.jpg", t: "Fenrir Kross, Hobbit Hunter", alt: "Fenrir Kross, a grey-bearded hunter in plate armour holding a glowing trident", c: "characters" },
+      { src: "images/paintings/gastine-royal-musketeer.jpg", t: "Gastine, Royal Musketeer", alt: "Gastine, a masked musketeer in a plumed hat and blue cape, holding a rapier and a lantern", c: "characters" }
     ];
     var list = ALL.slice(), active = 2;
     var title = $("now-title");
