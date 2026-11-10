@@ -30,7 +30,10 @@
       { src: "images/paintings/inahsi-sylvawyrm.jpg", t: "Inahsi Sylvawyrm", alt: "Inahsi Sylvawyrm, a teal-haired woman in a red scarf sitting on a mossy branch high in the clouds", c: "characters" },
       { src: "images/paintings/x077a-submerged.jpg", t: "X077A Submerged", alt: "X077A, a dark armoured figure lit with gold lights, drifting underwater", c: "characters" },
       { src: "images/paintings/fenrir-kross-hobbit-hunter.jpg", t: "Fenrir Kross, Hobbit Hunter", alt: "Fenrir Kross, a grey-bearded hunter in plate armour holding a glowing trident", c: "characters" },
-      { src: "images/paintings/gastine-royal-musketeer.jpg", t: "Gastine, Royal Musketeer", alt: "Gastine, a masked musketeer in a plumed hat and blue cape, holding a rapier and a lantern", c: "characters" }
+      { src: "images/paintings/gastine-royal-musketeer.jpg", t: "Gastine, Royal Musketeer", alt: "Gastine, a masked musketeer in a plumed hat and blue cape, holding a rapier and a lantern", c: "characters" },
+      { src: "images/paintings/itra-lady-of-lust.jpg", t: "Itra Lady of Lust", alt: "Itra, a winged figure in flowing red silk soaring through the clouds", c: "characters" },
+      { src: "images/paintings/kindred-spirit.jpg", t: "Kindred Spirit", alt: "Kindred Spirit, a dark-haired woman whose robes dissolve into a starry galaxy", c: "characters" },
+      { src: "images/paintings/lechar-the-kitsune.jpg", t: "Le'Char the Kitsune", alt: "Le'Char, a kitsune in a red kimono with nine white tails and fox-fire in her hands", c: "characters" }
     ];
     var list = ALL.slice(), active = 2;
     var title = $("now-title");
