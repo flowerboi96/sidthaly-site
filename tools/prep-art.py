@@ -3,7 +3,7 @@
 Usage:  python3 tools/prep-art.py <image> <slug> <folder>
         e.g. python3 tools/prep-art.py ~/art/dragon.png dragon-queen covers
 
-Writes images/<folder>/<slug>.jpg (1200 px on the long side) plus <slug>-1200.webp and <slug>-600.webp.
+Writes images/<folder>/<slug>.jpg and <slug>-1200.webp (1200 px on the long side) plus <slug>-600.webp (600 px wide).
 - Only web-size copies are published; the full-resolution original never goes on the site.
 - All hidden metadata (camera, GPS, software, layers) is stripped.
 - A copyright notice and the IPTC/PLUS "data mining prohibited" flag are embedded in every file.
@@ -49,7 +49,8 @@ def fit(im, long_edge):
 def main(src, slug, folder):
     base = os.path.join(os.path.dirname(__file__), "..", "images", folder); os.makedirs(base, exist_ok=True)
     im = clean(src)
-    big = fit(im, 1200); small = fit(im, 600)
+    big = fit(im, 1200)                                   # published size: 1200 px on the long side
+    w, h = big.size; small = big.resize((min(600, w), round(h * min(600, w) / w)), Image.LANCZOS)   # 600 px wide, as the site's srcset expects
     big.save(os.path.join(base, f"{slug}.jpg"), "JPEG", quality=86, progressive=True, optimize=True, exif=exif(), xmp=XMP)
     big.save(os.path.join(base, f"{slug}-1200.webp"), "WEBP", quality=84, method=6, exif=exif(), xmp=XMP)
     small.save(os.path.join(base, f"{slug}-600.webp"), "WEBP", quality=82, method=6, exif=exif(), xmp=XMP)
