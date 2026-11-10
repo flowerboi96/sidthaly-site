@@ -8,3 +8,11 @@
   Cache-Control: public, max-age=0, must-revalidate
 /js/*
   Cache-Control: public, max-age=0, must-revalidate
+
+# AI opt-out on every file, images included: "noai/noimageai" is honoured by dataset tools such as img2dataset;
+# tdm-reservation is the W3C TDMRep signal for the EU text-and-data-mining opt-out.
+/*
+  X-Robots-Tag: noai, noimageai
+  tdm-reservation: 1
+/.well-known/tdmrep.json
+  Content-Type: application/json
