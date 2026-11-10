@@ -21,12 +21,14 @@
   var row = $("row");
   if (row) {
     var ALL = [
-      { src: "images/paintings/wood-mist.jpg", t: "Wood Mist", alt: "An elf in a teal gown with a gold serpent coiled around her, green mist curling from her hand", c: "characters" },
-      { src: "images/paintings/jade-blade.jpg", t: "Jade Blade", alt: "A hooded woman in a green cloak resting a curved blade on her shoulder", c: "characters" },
-      { src: "images/paintings/the-scholar.jpg", t: "The Scholar", alt: "A warrior scholar reading a glowing red book, leaping through a beam of light", c: "characters" },
-      { src: "images/paintings/spirit-bear.jpg", t: "Spirit Bear", alt: "A white-haired sorceress summoning a green spirit bear", c: "characters" },
-      { src: "images/paintings/wraith.jpg", t: "Wraith", alt: "A cloaked figure seen from behind, a green blade glowing against a burning sky", c: "characters" },
-      { src: "images/paintings/demon.jpg", t: "Demon", alt: "A pale horned woman in black holding a white blade", c: "characters" }
+      { src: "images/paintings/kalapy-mist-of-the-woodland.jpg", t: "Kalapy, Mist of the Woodland", alt: "Kalapy, an elf in a teal gown with a gold serpent coiled around her, green mist curling from her hand", c: "characters" },
+      { src: "images/paintings/asahil-spirit-flame.jpg", t: "Asahil, Spirit Flame", alt: "Asahil, a hooded woman in a green cloak resting a curved blade on her shoulder", c: "characters" },
+      { src: "images/paintings/ardnik-blade-walker.jpg", t: "Ardnik, Blade Walker", alt: "Ardnik, a warrior scholar reading a glowing red book, leaping through a beam of light", c: "characters" },
+      { src: "images/paintings/ebba-and-fleux-spirit-dancer.jpg", t: "Ebba and Fleux, Spirit Dancer", alt: "Ebba, a white-haired sorceress dancing with Fleux, a green spirit bear", c: "characters" },
+      { src: "images/paintings/doomwraith.jpg", t: "Doomwraith", alt: "Doomwraith, a cloaked figure seen from behind, a green blade glowing against a burning sky", c: "characters" },
+      { src: "images/paintings/demona-lisa.jpg", t: "Demona Lisa", alt: "Demona Lisa, a pale horned woman in black holding a white blade", c: "characters" },
+      { src: "images/paintings/inahsi-sylvawyrm.jpg", t: "Inahsi Sylvawyrm", alt: "Inahsi Sylvawyrm, a teal-haired woman in a red scarf sitting on a mossy branch high in the clouds", c: "characters" },
+      { src: "images/paintings/x077a-submerged.jpg", t: "X077A Submerged", alt: "X077A, a dark armoured figure lit with gold lights, drifting underwater", c: "characters" }
     ];
     var list = ALL.slice(), active = 2;
     var title = $("now-title");
