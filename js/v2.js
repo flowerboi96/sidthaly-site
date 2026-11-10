@@ -21,20 +21,18 @@
   var row = $("row");
   if (row) {
     var ALL = [
-      { src: "images/covers/series-book-one.jpg", t: "Series set, book one", alt: "Series cover, book one, in amber and blue", c: "covers" },
-      { src: "images/covers/series-book-two.jpg", t: "Series set, book two", alt: "Series cover, book two, in violet and rose", c: "covers" },
-      { src: "images/covers/romantasy.jpg", t: "Romantasy couple", alt: "Romantasy cover: two figures under a rose-gold sky", c: "covers" },
-      { src: "images/covers/epic-fantasy.jpg", t: "Epic fantasy hero", alt: "Epic fantasy cover: a hero before a vast mountain range", c: "covers" },
-      { src: "images/covers/space-opera.jpg", t: "Space opera", alt: "Space opera cover: a ringed planet rising over a dark moon", c: "covers" },
-      { src: "images/covers/mythology-retelling.jpg", t: "Mahabharata retelling", alt: "Mythology retelling cover in saffron and gold", c: "covers" },
-      { src: "images/covers/dark-fantasy.jpg", t: "Dark fantasy villain", alt: "Dark fantasy cover: a pale moon over black peaks", c: "covers" },
-      { src: "images/characters/character-sheet.jpg", t: "Character sheet", alt: "Character sheet with front and back views, expressions and colour options", c: "characters" },
-      { src: "images/characters/ajira-suri.jpg", t: "Ajira", alt: "Ajira, the main character of SURI: The Seventh Note", c: "characters" },
-      { src: "images/cards/oracle-card.jpg", t: "Oracle card", alt: "Oracle card illustration in gold and violet", c: "cards" },
-      { src: "images/cards/tcg-card.jpg", t: "Trading card illustration", alt: "Trading card illustration in sea green", c: "cards" },
-      { src: "images/game/suri-environment.jpg", t: "SURI environment", alt: "Environment art from SURI: The Seventh Note at sunset", c: "game" }
+      { src: "images/paintings/kalapy-mist-of-the-woodland.jpg", t: "Kalapy, Mist of the Woodland", alt: "Kalapy, an elf in a teal gown with a gold serpent coiled around her, green mist curling from her hand", c: "characters" },
+      { src: "images/paintings/asahil-spirit-flame.jpg", t: "Asahil, Spirit Flame", alt: "Asahil, a hooded woman in a green cloak resting a curved blade on her shoulder", c: "characters" },
+      { src: "images/paintings/ardnik-blade-walker.jpg", t: "Ardnik, Blade Walker", alt: "Ardnik, a warrior scholar reading a glowing red book, leaping through a beam of light", c: "characters" },
+      { src: "images/paintings/ebba-and-fleux-spirit-dancer.jpg", t: "Ebba and Fleux, Spirit Dancer", alt: "Ebba, a white-haired sorceress dancing with Fleux, a green spirit bear", c: "characters" },
+      { src: "images/paintings/doomwraith.jpg", t: "Doomwraith", alt: "Doomwraith, a cloaked figure seen from behind, a green blade glowing against a burning sky", c: "characters" },
+      { src: "images/paintings/demona-lisa.jpg", t: "Demona Lisa", alt: "Demona Lisa, a pale horned woman in black holding a white blade", c: "characters" },
+      { src: "images/paintings/inahsi-sylvawyrm.jpg", t: "Inahsi Sylvawyrm", alt: "Inahsi Sylvawyrm, a teal-haired woman in a red scarf sitting on a mossy branch high in the clouds", c: "characters" },
+      { src: "images/paintings/x077a-submerged.jpg", t: "X077A Submerged", alt: "X077A, a dark armoured figure lit with gold lights, drifting underwater", c: "characters" },
+      { src: "images/paintings/fenrir-kross-hobbit-hunter.jpg", t: "Fenrir Kross, Hobbit Hunter", alt: "Fenrir Kross, a grey-bearded hunter in plate armour holding a glowing trident", c: "characters" },
+      { src: "images/paintings/gastine-royal-musketeer.jpg", t: "Gastine, Royal Musketeer", alt: "Gastine, a masked musketeer in a plumed hat and blue cape, holding a rapier and a lantern", c: "characters" }
     ];
-    var list = ALL.slice(), active = 3;
+    var list = ALL.slice(), active = 2;
     var title = $("now-title");
     var srcset = function (src) {
       var b = src.replace(/\.jpg$/, "");
