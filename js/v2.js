@@ -39,6 +39,13 @@
       { src: "images/paintings/anira-misguided.jpg", t: "Anira Misguided", alt: "Anira, a white-haired woman in a black gown with golden branching horns, teal mist swirling at her feet", c: "characters" },
       { src: "images/paintings/oila-saint-burn.jpg", t: "Oila Saint Burn", alt: "Oila, a woman with hair of fire leaping through the air, flames trailing from her purple trousers", c: "characters" }
     ];
+    // shuffle the paintings on every visit, so the carousel opens on a different mix each time
+    for (var q = ALL.length - 1; q > 0; q--) { var j = Math.floor(Math.random() * (q + 1)), tmp = ALL[q]; ALL[q] = ALL[j]; ALL[j] = tmp; }
+    // the "View all work" buttons point at paintings by their place in the list, so renumber them to match
+    Array.prototype.forEach.call(document.querySelectorAll("#all-work button[data-i]"), function (b) {
+      var src = b.querySelector("img").getAttribute("src");
+      for (var q = 0; q < ALL.length; q++) if (ALL[q].src === src) { b.setAttribute("data-i", q); break; }
+    });
     var list = ALL.slice(), active = 2;
     var title = $("now-title");
     var srcset = function (src) {
@@ -147,7 +154,8 @@
       if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(row);
       setInterval(function () {
         var lb = $("lb");
-        if (paused || !visible || document.hidden || (lb && lb.open) || Date.now() - lastTouch < 9000) return;
+        var ga = $("all-work"); // also hold still while "View all work" is open, so the grid and carousel stay free of repeats
+        if (paused || !visible || document.hidden || (lb && lb.open) || (ga && !ga.hidden) || Date.now() - lastTouch < 9000) return;
         step(1);
       }, 5000);
     }
@@ -175,19 +183,36 @@
     if (viewAll && grid) {
       viewAll.addEventListener("click", function () {
         var open = grid.hasAttribute("hidden");
+        if (open) arrangeGrid();
         if (open) grid.removeAttribute("hidden"); else grid.setAttribute("hidden", "");
         viewAll.setAttribute("aria-expanded", open ? "true" : "false");
         viewAll.querySelector("span").textContent = open ? "Hide all work" : "View all work";
       });
       grid.addEventListener("click", function (e) {
         var b = e.target.closest("button[data-i]");
-        if (b) openBox(parseInt(b.getAttribute("data-i"), 10));
+        if (b) openBox(parseInt(b.getAttribute("data-i"), 10), gridOrder());
       });
     }
-    var boxI = 0;
-    function showBox(i) {
-      boxI = (i + ALL.length) % ALL.length;
-      var it = ALL[boxI], im = $("lb-img");
+    // when the grid opens, it starts with the paintings the carousel isn't showing (carrying on from where
+    // the carousel leaves off) and ends with the five on screen in the carousel, so the two don't repeat side by side
+    function arrangeGrid() {
+      var n = list.length, k = Math.min(n, 5), first = active - Math.floor((k - 1) / 2), order = [];
+      for (var d = k; d < n; d++) order.push(list[((first + d) % n + n) % n]);
+      for (var e = 0; e < k; e++) order.push(list[((first + e) % n + n) % n]);
+      order.forEach(function (it) {
+        var b = grid.querySelector('button[data-i="' + ALL.indexOf(it) + '"]');
+        if (b) grid.appendChild(b);
+      });
+    }
+    function gridOrder() {
+      return Array.prototype.map.call(grid.querySelectorAll("button[data-i]"), function (b) { return parseInt(b.getAttribute("data-i"), 10); });
+    }
+    // the viewer's next/previous follow the order the painting was opened from: the carousel or the grid
+    var boxI = 0, boxOrder = null;
+    function showBox(p) {
+      var ord = boxOrder || ALL.map(function (_, i) { return i; });
+      boxI = (p + ord.length) % ord.length;
+      var it = ALL[ord[boxI]], im = $("lb-img");
       setZoom(false);
       im.removeAttribute("srcset"); im.removeAttribute("sizes"); im.src = it.src; im.alt = it.alt;
       $("lb-t").textContent = it.t;
@@ -219,10 +244,12 @@
         window.scrollTo({ top: lockY, left: 0, behavior: "instant" });
       }
     }
-    function openBox(i) {
+    function openBox(i, ord) {
       if (!box || typeof box.showModal !== "function") return;
       openedByKey = lastKey;
-      showBox(i < 0 ? 0 : i);
+      if (i < 0) i = 0;
+      boxOrder = ord || null;
+      showBox(ord ? Math.max(0, ord.indexOf(i)) : i);
       lockPage(true);
       box.showModal();
     }
