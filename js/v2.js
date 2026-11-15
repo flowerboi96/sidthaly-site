@@ -176,8 +176,20 @@
     function showBox(i) {
       boxI = (i + ALL.length) % ALL.length;
       var it = ALL[boxI], im = $("lb-img");
-      im.src = it.src; im.alt = it.alt; im.removeAttribute("srcset");
+      setZoom(false);
+      im.removeAttribute("srcset"); im.removeAttribute("sizes"); im.src = it.src; im.alt = it.alt;
       $("lb-t").textContent = it.t;
+    }
+    // tap or click the painting to see it at full size, then drag or scroll around it
+    function setZoom(on, ev) {
+      if (!box) return;
+      var im = $("lb-img"), pane = box.querySelector(".lb-in"), r = im.getBoundingClientRect();
+      var fx = ev ? (ev.clientX - r.left) / r.width : 0.5, fy = ev ? (ev.clientY - r.top) / r.height : 0.5;
+      box.classList.toggle("zoom", on);
+      if (on) {
+        pane.scrollLeft = Math.max(0, im.offsetLeft + fx * im.offsetWidth - pane.clientWidth / 2);
+        pane.scrollTop = Math.max(0, im.offsetTop + fy * im.offsetHeight - pane.clientHeight / 2);
+      } else { pane.scrollLeft = 0; pane.scrollTop = 0; }
     }
     function openBox(i) {
       if (!box || typeof box.showModal !== "function") return;
@@ -188,7 +200,17 @@
       $("lb-x").addEventListener("click", function () { box.close(); });
       $("lb-p").addEventListener("click", function () { showBox(boxI - 1); });
       $("lb-n").addEventListener("click", function () { showBox(boxI + 1); });
-      box.addEventListener("click", function (e) { if (e.target === box || e.target.classList.contains("lb-in")) box.close(); });
+      $("lb-img").addEventListener("click", function (e) { setZoom(!box.classList.contains("zoom"), e); });
+      box.addEventListener("close", function () { setZoom(false); });
+      box.addEventListener("click", function (e) { if (box.classList.contains("zoom")) return; if (e.target === box || e.target.classList.contains("lb-in")) box.close(); });
+      // swipe left or right on a phone to change painting (when not zoomed in)
+      var bx = null, by = null;
+      box.addEventListener("touchstart", function (e) { if (e.touches.length === 1) { bx = e.touches[0].clientX; by = e.touches[0].clientY; } else bx = null; }, { passive: true });
+      box.addEventListener("touchend", function (e) {
+        if (bx === null || box.classList.contains("zoom")) { bx = null; return; }
+        var dx = e.changedTouches[0].clientX - bx, dy = e.changedTouches[0].clientY - by; bx = null;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) showBox(boxI + (dx < 0 ? 1 : -1));
+      }, { passive: true });
       box.addEventListener("keydown", function (e) {
         if (e.key === "ArrowLeft") showBox(boxI - 1);
         if (e.key === "ArrowRight") showBox(boxI + 1);
