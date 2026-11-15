@@ -139,7 +139,7 @@
       var hold = function () { lastTouch = Date.now(); };
       ["pointerenter", "focusin", "touchstart"].forEach(function (ev) { row.addEventListener(ev, function () { paused = true; hold(); }, { passive: true }); });
       ["pointerleave", "focusout"].forEach(function (ev) { row.addEventListener(ev, function () { paused = false; hold(); }); });
-      ["prev", "next"].forEach(function (id) { var b = $(id); if (b) b.addEventListener("click", hold); });
+      ["prev", "next", "edge-prev", "edge-next"].forEach(function (id) { var b = $(id); if (b) b.addEventListener("click", hold); });
       if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(row);
       setInterval(function () {
         var lb = $("lb");
@@ -149,6 +149,9 @@
     }
 
     $("prev").addEventListener("click", function () { userStep(-1); });
+    // arrows on the sides of the carousel, for when the controls below are off screen
+    if ($("edge-prev")) $("edge-prev").addEventListener("click", function () { userStep(-1); });
+    if ($("edge-next")) $("edge-next").addEventListener("click", function () { userStep(1); });
     $("next").addEventListener("click", function () { userStep(1); });
     row.addEventListener("click", function (e) {
       var c = e.target.closest(".c");
