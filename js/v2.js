@@ -111,6 +111,16 @@
       if (title) title.textContent = list[active].t;
     };
     var step = function (s) { lastDir = s > 0 ? 1 : -1; active = ((active + s) % list.length + list.length) % list.length; render(); };
+    // When the visitor changes painting themselves, the new painting's name banner shows for a few seconds.
+    var tagTimer = null;
+    var userStep = function (s) {
+      step(s);
+      var on = row.querySelector(".c.on"); if (!on) return;
+      Array.prototype.forEach.call(row.querySelectorAll(".c.show"), function (c) { c.classList.remove("show"); });
+      on.classList.add("show");
+      clearTimeout(tagTimer);
+      tagTimer = setTimeout(function () { on.classList.remove("show"); }, 3000);
+    };
 
     if (!reduce) {
       // The centre painting tilts gently towards the pointer (mouse and trackpad only).
@@ -138,13 +148,13 @@
       }, 5000);
     }
 
-    $("prev").addEventListener("click", function () { step(-1); });
-    $("next").addEventListener("click", function () { step(1); });
+    $("prev").addEventListener("click", function () { userStep(-1); });
+    $("next").addEventListener("click", function () { userStep(1); });
     row.addEventListener("click", function (e) {
       var c = e.target.closest(".c");
       if (!c) return;
       var d = parseInt(c.getAttribute("data-step"), 10) || 0;
-      if (d === 0) openBox(ALL.indexOf(list[active])); else step(d);
+      if (d === 0) openBox(ALL.indexOf(list[active])); else userStep(d);
     });
 
     // "View all work" grid and the full-size viewer
@@ -184,15 +194,15 @@
       });
     }
     row.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
-      if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); userStep(-1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); userStep(1); }
     });
     var x0 = null;
     row.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
     row.addEventListener("touchend", function (e) {
       if (x0 === null) return;
       var dx = e.changedTouches[0].clientX - x0; x0 = null;
-      if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+      if (Math.abs(dx) > 40) userStep(dx < 0 ? 1 : -1);
     });
     filters.forEach(function (btn) {
       btn.addEventListener("click", function () {
