@@ -191,9 +191,27 @@
         pane.scrollTop = Math.max(0, im.offsetTop + fy * im.offsetHeight - pane.clientHeight / 2);
       } else { pane.scrollLeft = 0; pane.scrollTop = 0; }
     }
+    // remember whether the viewer was opened by keyboard, so a mouse or tap user doesn't get a focus ring when it closes
+    var lastKey = false, openedByKey = false, lockY = 0;
+    document.addEventListener("keydown", function () { lastKey = true; }, true);
+    document.addEventListener("pointerdown", function () { lastKey = false; }, true);
+    function lockPage(on) {
+      var b = document.body;
+      if (on) {
+        lockY = window.scrollY || window.pageYOffset || 0;
+        b.style.position = "fixed"; b.style.top = -lockY + "px"; b.style.left = "0"; b.style.right = "0"; b.style.width = "100%";
+        document.documentElement.classList.add("lb-lock");
+      } else {
+        b.style.position = b.style.top = b.style.left = b.style.right = b.style.width = "";
+        document.documentElement.classList.remove("lb-lock");
+        window.scrollTo({ top: lockY, left: 0, behavior: "instant" });
+      }
+    }
     function openBox(i) {
       if (!box || typeof box.showModal !== "function") return;
+      openedByKey = lastKey;
       showBox(i < 0 ? 0 : i);
+      lockPage(true);
       box.showModal();
     }
     if (box) {
@@ -201,7 +219,10 @@
       $("lb-p").addEventListener("click", function () { showBox(boxI - 1); });
       $("lb-n").addEventListener("click", function () { showBox(boxI + 1); });
       $("lb-img").addEventListener("click", function (e) { setZoom(!box.classList.contains("zoom"), e); });
-      box.addEventListener("close", function () { setZoom(false); });
+      box.addEventListener("close", function () {
+        setZoom(false); lockPage(false);
+        if (!openedByKey && document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      });
       box.addEventListener("click", function (e) { if (box.classList.contains("zoom")) return; if (e.target === box || e.target.classList.contains("lb-in")) box.close(); });
       // swipe left or right on a phone to change painting (when not zoomed in)
       var bx = null, by = null;

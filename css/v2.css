@@ -296,3 +296,9 @@ footer.wrap::before{content:"";position:absolute;z-index:-1;left:50%;width:100vw
 .lb.zoom img{display:block;width:auto;height:auto;max-width:none;max-height:none;margin:0 auto;cursor:zoom-out;box-shadow:none}
 .lb.zoom p,.lb.zoom .lp,.lb.zoom .ln{display:none}
 .lb.zoom .x{position:fixed;z-index:2}
+html.lb-lock,html.lb-lock body{overflow:hidden;overscroll-behavior:none}
+.lb,.lb-in{overscroll-behavior:contain}
+.lb:not(.zoom) .lb-in{touch-action:pinch-zoom}
+/* the carousel row takes keyboard focus for the arrow keys; show that on the selected painting, not as a line across the page */
+.row:focus{outline:none}
+.row:focus-visible .c.on{outline:2px solid var(--bone);outline-offset:4px}
