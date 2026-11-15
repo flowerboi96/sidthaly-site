@@ -150,3 +150,8 @@
 .lb.zoom .edge{display:none}
 @media (max-width:820px){.lb .edge{top:auto;margin-top:0;bottom:calc(22px + env(safe-area-inset-bottom,0px))}.lb .edge.prev{left:20px}.lb .edge.next{right:20px}}
 html.lb-lock .stage .edge{visibility:hidden}
+/* close button in the viewer: same frosted circle, an x that glows red on hover */
+.lb .edge.x{top:20px;right:24px;left:auto;bottom:auto;margin-top:0;width:56px;height:56px}
+.lb .edge.x svg{width:22px;height:22px;margin:0}
+.lb.zoom .edge.x{display:flex;position:fixed;z-index:2}
+@media (max-width:820px){.lb .edge.x{top:calc(14px + env(safe-area-inset-top,0px));right:14px;bottom:auto;width:46px;height:46px}.lb .edge.x svg{width:18px;height:18px}}
