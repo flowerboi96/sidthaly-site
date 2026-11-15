@@ -35,7 +35,9 @@
       { src: "images/paintings/kindred-spirit.jpg", t: "Kindred Spirit", alt: "Kindred Spirit, a dark-haired woman whose robes dissolve into a starry galaxy", c: "characters" },
       { src: "images/paintings/lechar-the-kitsune.jpg", t: "Le'Char the Kitsune", alt: "Le'Char, a kitsune in a red kimono with nine white tails and fox-fire in her hands", c: "characters" },
       { src: "images/paintings/cosmic-slayer-gaaliel.jpg", t: "Cosmic Slayer Gaaliel", alt: "Gaaliel, a pale masked figure in a flowing cloak, gripping a silver blade among stars and moons", c: "characters" },
-      { src: "images/paintings/cosmic-slayer-vaar.jpg", t: "Cosmic Slayer Vaar", alt: "Vaar, a horned figure seen from behind, glowing crescent-moon blades around him in a purple starfield", c: "characters" }
+      { src: "images/paintings/cosmic-slayer-vaar.jpg", t: "Cosmic Slayer Vaar", alt: "Vaar, a horned figure seen from behind, glowing crescent-moon blades around him in a purple starfield", c: "characters" },
+      { src: "images/paintings/anira-misguided.jpg", t: "Anira Misguided", alt: "Anira, a white-haired woman in a black gown with golden branching horns, teal mist swirling at her feet", c: "characters" },
+      { src: "images/paintings/oila-saint-burn.jpg", t: "Oila Saint Burn", alt: "Oila, a woman with hair of fire leaping through the air, flames trailing from her purple trousers", c: "characters" }
     ];
     var list = ALL.slice(), active = 2;
     var title = $("now-title");
