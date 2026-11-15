@@ -16,7 +16,6 @@
 .row .c.on{height:min(610px,42.4vw);cursor:default;opacity:1;box-shadow:0 0 0 1px var(--hot),0 0 0 10px var(--ink),0 0 0 11px var(--line2),0 40px 90px rgba(0,0,0,.6)}
 .ctl{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;padding-bottom:40px}
 .ctl .now{grid-column:2;font-size:22px;font-weight:600;text-align:center}
-.arr{display:flex;gap:10px;justify-content:flex-end}
 .proof{display:flex;justify-content:space-between;gap:30px;padding:26px 0;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
 .proof span{display:flex;align-items:center;gap:10px;white-space:nowrap}
 /* shop teaser (live mini display) */
@@ -121,3 +120,28 @@
  .row .c{animation:none!important;transition:none!important}
  .row .c::after{display:none}
 }
+
+/* the selected painting's red border sits on the painting's own edge, so it moves with the art instead of shimmering */
+.row .c::before{content:"";position:absolute;inset:0;border:1.5px solid var(--hot);opacity:0;pointer-events:none;z-index:2;transition:opacity .3s ease}
+.row .c.on::before{opacity:1}
+.row .c.on{box-shadow:0 0 0 10px var(--ink),0 0 0 11px var(--line2),0 40px 90px rgba(0,0,0,.6)}
+/* name on a red banner over the selected painting: on hover with a short delay (on touch screens, once it settles) */
+.row .c .tag{position:absolute;left:12px;right:12px;bottom:12px;z-index:3;background:var(--red);color:#fff;font-size:15px;font-weight:700;line-height:1.25;padding:8px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 6px 18px rgba(0,0,0,.45);opacity:0;transform:translateY(6px);transition:opacity .15s ease-out,transform .15s ease-out;pointer-events:none}
+.row .c.on:hover .tag{opacity:1;transform:none;transition-delay:.08s}
+.row .c.on.show .tag{opacity:1;transform:none;transition-delay:.25s}
+@media (hover:none){.row .c.on .tag{opacity:1;transform:none;transition-delay:.45s}}
+@media (max-width:820px){.row .c .tag{left:8px;right:8px;bottom:8px;font-size:12.5px;padding:6px 9px}}
+/* the caption under the carousel is kept for screen readers only; the banner shows the name */
+.ctl .now{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.row .c .tag{transition:none;transform:none}}
+
+/* side arrows over the carousel: translucent, red on hover; 20% in from the screen edges on desktop */
+.stage{position:relative}
+.edge{position:absolute;top:50%;z-index:6;width:76px;height:76px;margin-top:-38px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid rgba(255,255,255,.08);cursor:pointer;color:var(--bone);background:rgba(14,16,24,.42);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .15s ease}
+.edge svg{width:30px;height:50px;transition:color .15s ease,filter .15s ease}
+.edge.prev{left:6%}.edge.next{right:6%}
+.edge.prev svg{margin-left:-4px}.edge.next svg{margin-right:-4px}
+.edge:hover svg,.edge:focus-visible svg{color:var(--red);filter:drop-shadow(0 0 4px rgba(227,16,62,.95)) drop-shadow(0 0 12px rgba(227,16,62,.6))}
+.edge:active{transform:scale(.94)}
+.edge:focus-visible{outline:none}
+@media (max-width:820px){.edge{width:46px;height:46px;margin-top:-23px}.edge svg{width:18px;height:30px}.edge.prev{left:4px}.edge.next{right:4px}}

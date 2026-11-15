@@ -65,6 +65,9 @@
           img.src = item.src; img.alt = item.alt;
           img.srcset = srcset(item.src); img.sizes = "(max-width: 820px) 60vw, 30vw"; img.decoding = "async";
           el.appendChild(img);
+          var tag = document.createElement("span");   // name banner, shown over the selected painting
+          tag.className = "tag"; tag.setAttribute("aria-hidden", "true"); tag.textContent = item.t;
+          el.appendChild(tag);
           nodes[key] = el;
         }
         el.className = "c" + (d === 0 ? " on" : Math.abs(d) === 1 ? " d1" : "");
@@ -108,6 +111,16 @@
       if (title) title.textContent = list[active].t;
     };
     var step = function (s) { lastDir = s > 0 ? 1 : -1; active = ((active + s) % list.length + list.length) % list.length; render(); };
+    // When the visitor changes painting themselves, the new painting's name banner shows for a few seconds.
+    var tagTimer = null;
+    var userStep = function (s) {
+      step(s);
+      var on = row.querySelector(".c.on"); if (!on) return;
+      Array.prototype.forEach.call(row.querySelectorAll(".c.show"), function (c) { c.classList.remove("show"); });
+      on.classList.add("show");
+      clearTimeout(tagTimer);
+      tagTimer = setTimeout(function () { on.classList.remove("show"); }, 3000);
+    };
 
     if (!reduce) {
       // The centre painting tilts gently towards the pointer (mouse and trackpad only).
@@ -126,7 +139,7 @@
       var hold = function () { lastTouch = Date.now(); };
       ["pointerenter", "focusin", "touchstart"].forEach(function (ev) { row.addEventListener(ev, function () { paused = true; hold(); }, { passive: true }); });
       ["pointerleave", "focusout"].forEach(function (ev) { row.addEventListener(ev, function () { paused = false; hold(); }); });
-      ["prev", "next"].forEach(function (id) { var b = $(id); if (b) b.addEventListener("click", hold); });
+      ["edge-prev", "edge-next"].forEach(function (id) { var b = $(id); if (b) b.addEventListener("click", hold); });
       if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(row);
       setInterval(function () {
         var lb = $("lb");
@@ -135,13 +148,14 @@
       }, 5000);
     }
 
-    $("prev").addEventListener("click", function () { step(-1); });
-    $("next").addEventListener("click", function () { step(1); });
+    // arrows on the sides of the carousel
+    if ($("edge-prev")) $("edge-prev").addEventListener("click", function () { userStep(-1); });
+    if ($("edge-next")) $("edge-next").addEventListener("click", function () { userStep(1); });
     row.addEventListener("click", function (e) {
       var c = e.target.closest(".c");
       if (!c) return;
       var d = parseInt(c.getAttribute("data-step"), 10) || 0;
-      if (d === 0) openBox(ALL.indexOf(list[active])); else step(d);
+      if (d === 0) openBox(ALL.indexOf(list[active])); else userStep(d);
     });
 
     // "View all work" grid and the full-size viewer
@@ -181,15 +195,15 @@
       });
     }
     row.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
-      if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); userStep(-1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); userStep(1); }
     });
     var x0 = null;
     row.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
     row.addEventListener("touchend", function (e) {
       if (x0 === null) return;
       var dx = e.changedTouches[0].clientX - x0; x0 = null;
-      if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+      if (Math.abs(dx) > 40) userStep(dx < 0 ? 1 : -1);
     });
     filters.forEach(function (btn) {
       btn.addEventListener("click", function () {
