@@ -105,3 +105,18 @@
 }
 .quote{background-image:url("../images/bg/grain.png"),url("../images/bg/galaxy.jpg");background-image:url("../images/bg/grain.png"),image-set(url("../images/bg/galaxy.webp") type("image/webp"),url("../images/bg/galaxy.jpg") type("image/jpeg"));background-size:96px 96px,cover;background-repeat:repeat,no-repeat;background-position:0 0,center 80%;background-blend-mode:overlay,normal}
 @media (max-width:820px){.quote{background-image:url("../images/bg/grain.png"),url("../images/bg/galaxy-m.jpg");background-image:url("../images/bg/grain.png"),image-set(url("../images/bg/galaxy-m.webp") type("image/webp"),url("../images/bg/galaxy-m.jpg") type("image/jpeg"));background-position:0 0,center top}}
+
+/* carousel motion (all switched off for reduced-motion visitors) */
+.row .c{position:relative;transition:height .45s cubic-bezier(.22,.7,.2,1),opacity .45s ease,transform .35s ease-out;will-change:transform}
+.row .c::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(112deg,transparent 38%,rgba(255,255,255,.16) 50%,transparent 62%);transform:translateX(-130%)}
+.row .c.on.sweep::after{animation:sweep 1.3s cubic-bezier(.3,.6,.2,1) .2s}
+.row .c.on img{animation:drift 18s ease-in-out infinite alternate}
+.row .c:not(.on){animation:float 7s ease-in-out infinite}
+.row .c:nth-child(2){animation-delay:-2.3s}.row .c:nth-child(4){animation-delay:-4.6s}.row .c:nth-child(5){animation-delay:-1.2s}
+@keyframes sweep{to{transform:translateX(130%)}}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.07) translate(-1%,-1.2%)}}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -5px}}
+@media (prefers-reduced-motion:reduce){
+ .row .c,.row .c.on img,.row .c:not(.on){animation:none!important;transition:none!important}
+ .row .c::after{display:none}
+}
