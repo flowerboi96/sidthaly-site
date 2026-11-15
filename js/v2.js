@@ -65,6 +65,9 @@
           img.src = item.src; img.alt = item.alt;
           img.srcset = srcset(item.src); img.sizes = "(max-width: 820px) 60vw, 30vw"; img.decoding = "async";
           el.appendChild(img);
+          var tag = document.createElement("span");   // name banner, shown over the selected painting
+          tag.className = "tag"; tag.setAttribute("aria-hidden", "true"); tag.textContent = item.t;
+          el.appendChild(tag);
           nodes[key] = el;
         }
         el.className = "c" + (d === 0 ? " on" : Math.abs(d) === 1 ? " d1" : "");
