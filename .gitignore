@@ -4,3 +4,4 @@ Thumbs.db
 *.kra
 *.clip
 originals/
+__pycache__/
