@@ -107,7 +107,9 @@
 @media (max-width:820px){.quote{background-image:url("../images/bg/grain.png"),url("../images/bg/galaxy-m.jpg");background-image:url("../images/bg/grain.png"),image-set(url("../images/bg/galaxy-m.webp") type("image/webp"),url("../images/bg/galaxy-m.jpg") type("image/jpeg"));background-position:0 0,center top}}
 
 /* carousel motion (all switched off for reduced-motion visitors) */
-.row .c{position:relative;transition:height .45s cubic-bezier(.22,.7,.2,1),opacity .45s ease,transform .35s ease-out;will-change:transform}
+.row{position:relative}
+.row .c{position:relative;transition:opacity .45s ease,transform .35s ease-out;will-change:transform}
+.row .c.ghost{pointer-events:none;animation:none}
 .row .c::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(112deg,transparent 38%,rgba(255,255,255,.16) 50%,transparent 62%);transform:translateX(-130%)}
 .row .c.on.sweep::after{animation:sweep 1.3s cubic-bezier(.3,.6,.2,1) .2s}
 .row .c.on img{animation:drift 18s ease-in-out infinite alternate}

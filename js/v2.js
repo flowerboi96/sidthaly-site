@@ -47,10 +47,13 @@
     // Everything here is skipped for visitors who ask their device for reduced motion.
     var reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
     var nodes = {}, lastDir = 0, firstRender = true;
+    var EASE = "cubic-bezier(.22,.7,.2,1)", DUR = 560;
     var render = function () {
       var n = list.length, k = Math.min(n, 5), start = -Math.floor((k - 1) / 2);
-      var before = {};
-      if (!reduce) Array.prototype.forEach.call(row.children, function (el) { before[el.getAttribute("data-i")] = el.getBoundingClientRect().left; });
+      var rowBox = row.getBoundingClientRect(), before = {};
+      if (!reduce) Array.prototype.forEach.call(row.children, function (el) {
+        var r = el.getBoundingClientRect(); before[el.getAttribute("data-i")] = { x: r.left, y: r.top, w: r.width, h: r.height, el: el };
+      });
       var want = [], keep = {};
       for (var d = start; d < start + k; d++) {
         var i = ((active + d) % n + n) % n, item = list[i], key = item.src;
@@ -69,20 +72,33 @@
         el.style.transform = "";
         keep[key] = 1; want.push(el);
       }
-      Object.keys(nodes).forEach(function (key) {
-        if (!keep[key]) { if (nodes[key].parentNode === row) row.removeChild(nodes[key]); delete nodes[key]; }
-      });
+      var leaving = [];
+      Object.keys(nodes).forEach(function (key) { if (!keep[key]) { leaving.push(key); delete nodes[key]; } });
       Array.prototype.slice.call(row.children).forEach(function (el) { if (want.indexOf(el) < 0) row.removeChild(el); });
       want.forEach(function (el, idx) { if (row.children[idx] !== el) row.insertBefore(el, row.children[idx] || null); });
       if (!reduce && !firstRender && row.animate) {
+        // Position and size move together on one timer (a "filmstrip" glide), so neighbouring cards never overlap.
+        var slot = 0;
+        if (want.length > 1) { var r0 = want[0].getBoundingClientRect(), r1 = want[1].getBoundingClientRect(); slot = r1.left - r0.left; }
         want.forEach(function (el) {
-          var key = el.getAttribute("data-i"), x = el.getBoundingClientRect().left;
-          if (before[key] !== undefined) {
-            var dx = before[key] - x;
-            if (Math.abs(dx) > 1) el.animate([{ transform: "translateX(" + dx + "px)" }, { transform: "none" }], { duration: 520, easing: "cubic-bezier(.22,.7,.2,1)" });
-          } else {
-            el.animate([{ opacity: 0, transform: "translateX(" + (lastDir * 90) + "px)" }, { opacity: getComputedStyle(el).opacity, transform: "none" }], { duration: 520, easing: "cubic-bezier(.22,.7,.2,1)" });
-          }
+          var key = el.getAttribute("data-i"), r = el.getBoundingClientRect(), b0 = before[key];
+          var from;
+          if (b0) from = { x: b0.x, y: b0.y, s: b0.h / r.height };
+          else from = { x: r.left + lastDir * slot, y: r.top, s: 1 };   // a new card slides in from just beyond the edge
+          var dx = from.x - r.left, dy = from.y - r.top;
+          if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5 && Math.abs(from.s - 1) < 0.002) return;
+          el.animate([{ transformOrigin: "0 0", transform: "translate(" + dx + "px," + dy + "px) scale(" + from.s + ")" },
+                      { transformOrigin: "0 0", transform: "none" }], { duration: DUR, easing: EASE });
+        });
+        // the card leaving at the edge slides out the same way instead of vanishing
+        leaving.forEach(function (key) {
+          var b0 = before[key]; if (!b0) return;
+          var g = b0.el; g.className = "c ghost"; g.style.transform = "";
+          g.style.position = "absolute"; g.style.left = (b0.x - rowBox.left) + "px"; g.style.top = (b0.y - rowBox.top) + "px";
+          g.style.width = b0.w + "px"; g.style.height = b0.h + "px"; g.style.margin = "0";
+          row.appendChild(g);
+          var an = g.animate([{ transform: "none", opacity: g.style.opacity || 0.6 }, { transform: "translateX(" + (-lastDir * slot) + "px)", opacity: 0.6 }], { duration: DUR, easing: EASE });
+          an.onfinish = function () { if (g.parentNode) g.parentNode.removeChild(g); };
         });
         var on = row.querySelector(".c.on");
         if (on) { on.classList.remove("sweep"); void on.offsetWidth; on.classList.add("sweep"); }
@@ -105,7 +121,7 @@
         });
         row.addEventListener("pointerleave", function () { var on = row.querySelector(".c.on"); if (on) on.style.transform = ""; });
       }
-      // Moves on by itself every few seconds; pauses while someone is hovering, using the controls, or scrolled away.
+      // Moves on by itself every 5 seconds; pauses while someone is hovering, using the controls, or scrolled away.
       var paused = false, visible = true, lastTouch = 0;
       var hold = function () { lastTouch = Date.now(); };
       ["pointerenter", "focusin", "touchstart"].forEach(function (ev) { row.addEventListener(ev, function () { paused = true; hold(); }, { passive: true }); });
@@ -116,7 +132,7 @@
         var lb = $("lb");
         if (paused || !visible || document.hidden || (lb && lb.open) || Date.now() - lastTouch < 9000) return;
         step(1);
-      }, 6500);
+      }, 5000);
     }
 
     $("prev").addEventListener("click", function () { step(-1); });
