@@ -148,6 +148,14 @@
       }, 5000);
     }
 
+    // touch screens: the round buttons glow red while pressed, then fade back to white 0.3s after the finger lifts
+    Array.prototype.forEach.call(document.querySelectorAll(".edge"), function (b) {
+      var t = null;
+      b.addEventListener("pointerdown", function (e) { if (e.pointerType === "mouse") return; clearTimeout(t); b.classList.add("tap"); });
+      ["pointerup", "pointercancel", "pointerleave"].forEach(function (ev) {
+        b.addEventListener(ev, function (e) { if (e.pointerType === "mouse") return; clearTimeout(t); t = setTimeout(function () { b.classList.remove("tap"); }, 300); });
+      });
+    });
     // arrows on the sides of the carousel
     if ($("edge-prev")) $("edge-prev").addEventListener("click", function () { userStep(-1); });
     if ($("edge-next")) $("edge-next").addEventListener("click", function () { userStep(1); });
