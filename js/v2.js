@@ -25,7 +25,7 @@
       { src: "images/paintings/asahil-spirit-flame.jpg", t: "Asahil, Spirit Flame", alt: "Asahil, a hooded woman in a green cloak resting a curved blade on her shoulder", c: "characters" },
       { src: "images/paintings/ardnik-blade-walker.jpg", t: "Ardnik, Blade Walker", alt: "Ardnik, a warrior scholar reading a glowing red book, leaping through a beam of light", c: "characters" },
       { src: "images/paintings/ebba-and-fleux-spirit-dancer.jpg", t: "Ebba and Fleux, Spirit Dancer", alt: "Ebba, a white-haired sorceress dancing with Fleux, a green spirit bear", c: "characters" },
-      { src: "images/paintings/doomwraith.jpg", t: "Doomwraith", alt: "Doomwraith, a cloaked figure seen from behind, a green blade glowing against a burning sky", c: "characters" },
+      { src: "images/paintings/cosmic-slayer-dhrum.jpg", t: "Cosmic Slayer Dhrum", alt: "Dhrum, a cloaked figure seen from behind, a green blade glowing against a burning sky", c: "characters" },
       { src: "images/paintings/demona-lisa.jpg", t: "Demona Lisa", alt: "Demona Lisa, a pale horned woman in black holding a white blade", c: "characters" },
       { src: "images/paintings/inahsi-sylvawyrm.jpg", t: "Inahsi Sylvawyrm", alt: "Inahsi Sylvawyrm, a teal-haired woman in a red scarf sitting on a mossy branch high in the clouds", c: "characters" },
       { src: "images/paintings/x077a-submerged.jpg", t: "X077A Submerged", alt: "X077A, a dark armoured figure lit with gold lights, drifting underwater", c: "characters" },
@@ -33,7 +33,9 @@
       { src: "images/paintings/gastine-royal-musketeer.jpg", t: "Gastine, Royal Musketeer", alt: "Gastine, a masked musketeer in a plumed hat and blue cape, holding a rapier and a lantern", c: "characters" },
       { src: "images/paintings/itra-lady-of-lust.jpg", t: "Itra Lady of Lust", alt: "Itra, a winged figure in flowing red silk soaring through the clouds", c: "characters" },
       { src: "images/paintings/kindred-spirit.jpg", t: "Kindred Spirit", alt: "Kindred Spirit, a dark-haired woman whose robes dissolve into a starry galaxy", c: "characters" },
-      { src: "images/paintings/lechar-the-kitsune.jpg", t: "Le'Char the Kitsune", alt: "Le'Char, a kitsune in a red kimono with nine white tails and fox-fire in her hands", c: "characters" }
+      { src: "images/paintings/lechar-the-kitsune.jpg", t: "Le'Char the Kitsune", alt: "Le'Char, a kitsune in a red kimono with nine white tails and fox-fire in her hands", c: "characters" },
+      { src: "images/paintings/cosmic-slayer-gaaliel.jpg", t: "Cosmic Slayer Gaaliel", alt: "Gaaliel, a pale masked figure in a flowing cloak, gripping a silver blade among stars and moons", c: "characters" },
+      { src: "images/paintings/cosmic-slayer-vaar.jpg", t: "Cosmic Slayer Vaar", alt: "Vaar, a horned figure seen from behind, glowing crescent-moon blades around him in a purple starfield", c: "characters" }
     ];
     var list = ALL.slice(), active = 2;
     var title = $("now-title");
