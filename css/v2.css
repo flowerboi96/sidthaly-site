@@ -302,3 +302,8 @@ html.lb-lock,html.lb-lock body{overflow:hidden;overscroll-behavior:none}
 /* the carousel row takes keyboard focus for the arrow keys; show that on the selected painting, not as a line across the page */
 .row:focus{outline:none}
 .row:focus-visible .c.on{outline:2px solid var(--bone);outline-offset:4px}
+/* shop coming soon: greyed out, not clickable */
+.soon{color:rgba(239,230,225,.38);cursor:default;display:inline-flex;align-items:center;gap:7px;-webkit-user-select:none;user-select:none}
+.soon small{font-size:9px;letter-spacing:.12em;line-height:1;padding:3px 5px 2px;border:1px solid rgba(239,230,225,.22);color:rgba(239,230,225,.5)}
+.sec[hidden]{display:none}
+@media (max-width:820px){.hd.open .nav > .soon{padding:14px 0;border-bottom:1px solid var(--rule)}}

@@ -1,0 +1,3 @@
+# Shop is closed for now (coming soon): send visitors to the home page. Delete these two lines to reopen it.
+/shop.html  /  302
+/shop       /  302
