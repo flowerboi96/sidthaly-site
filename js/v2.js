@@ -148,6 +148,14 @@
       }, 5000);
     }
 
+    // touch screens: the round buttons glow red while pressed, then fade back to white 0.15s after the finger lifts
+    Array.prototype.forEach.call(document.querySelectorAll(".edge"), function (b) {
+      var t = null;
+      b.addEventListener("pointerdown", function (e) { if (e.pointerType === "mouse") return; clearTimeout(t); b.classList.add("tap"); });
+      ["pointerup", "pointercancel", "pointerleave"].forEach(function (ev) {
+        b.addEventListener(ev, function (e) { if (e.pointerType === "mouse") return; clearTimeout(t); t = setTimeout(function () { b.classList.remove("tap"); }, 150); });
+      });
+    });
     // arrows on the sides of the carousel
     if ($("edge-prev")) $("edge-prev").addEventListener("click", function () { userStep(-1); });
     if ($("edge-next")) $("edge-next").addEventListener("click", function () { userStep(1); });
@@ -176,19 +184,62 @@
     function showBox(i) {
       boxI = (i + ALL.length) % ALL.length;
       var it = ALL[boxI], im = $("lb-img");
-      im.src = it.src; im.alt = it.alt; im.removeAttribute("srcset");
+      setZoom(false);
+      im.removeAttribute("srcset"); im.removeAttribute("sizes"); im.src = it.src; im.alt = it.alt;
       $("lb-t").textContent = it.t;
+    }
+    // tap or click the painting to see it at full size, then drag or scroll around it
+    function setZoom(on, ev) {
+      if (!box) return;
+      var im = $("lb-img"), pane = box.querySelector(".lb-in"), r = im.getBoundingClientRect();
+      var fx = ev ? (ev.clientX - r.left) / r.width : 0.5, fy = ev ? (ev.clientY - r.top) / r.height : 0.5;
+      box.classList.toggle("zoom", on);
+      if (on) {
+        pane.scrollLeft = Math.max(0, im.offsetLeft + fx * im.offsetWidth - pane.clientWidth / 2);
+        pane.scrollTop = Math.max(0, im.offsetTop + fy * im.offsetHeight - pane.clientHeight / 2);
+      } else { pane.scrollLeft = 0; pane.scrollTop = 0; }
+    }
+    // remember whether the viewer was opened by keyboard, so a mouse or tap user doesn't get a focus ring when it closes
+    var lastKey = false, openedByKey = false, lockY = 0;
+    document.addEventListener("keydown", function () { lastKey = true; }, true);
+    document.addEventListener("pointerdown", function () { lastKey = false; }, true);
+    function lockPage(on) {
+      var b = document.body;
+      if (on) {
+        lockY = window.scrollY || window.pageYOffset || 0;
+        b.style.position = "fixed"; b.style.top = -lockY + "px"; b.style.left = "0"; b.style.right = "0"; b.style.width = "100%";
+        document.documentElement.classList.add("lb-lock");
+      } else {
+        b.style.position = b.style.top = b.style.left = b.style.right = b.style.width = "";
+        document.documentElement.classList.remove("lb-lock");
+        window.scrollTo({ top: lockY, left: 0, behavior: "instant" });
+      }
     }
     function openBox(i) {
       if (!box || typeof box.showModal !== "function") return;
+      openedByKey = lastKey;
       showBox(i < 0 ? 0 : i);
+      lockPage(true);
       box.showModal();
     }
     if (box) {
       $("lb-x").addEventListener("click", function () { box.close(); });
       $("lb-p").addEventListener("click", function () { showBox(boxI - 1); });
       $("lb-n").addEventListener("click", function () { showBox(boxI + 1); });
-      box.addEventListener("click", function (e) { if (e.target === box || e.target.classList.contains("lb-in")) box.close(); });
+      $("lb-img").addEventListener("click", function (e) { setZoom(!box.classList.contains("zoom"), e); });
+      box.addEventListener("close", function () {
+        setZoom(false); lockPage(false);
+        if (!openedByKey && document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      });
+      box.addEventListener("click", function (e) { if (box.classList.contains("zoom")) return; if (e.target === box || e.target.classList.contains("lb-in")) box.close(); });
+      // swipe left or right on a phone to change painting (when not zoomed in)
+      var bx = null, by = null;
+      box.addEventListener("touchstart", function (e) { if (e.touches.length === 1) { bx = e.touches[0].clientX; by = e.touches[0].clientY; } else bx = null; }, { passive: true });
+      box.addEventListener("touchend", function (e) {
+        if (bx === null || box.classList.contains("zoom")) { bx = null; return; }
+        var dx = e.changedTouches[0].clientX - bx, dy = e.changedTouches[0].clientY - by; bx = null;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) showBox(boxI + (dx < 0 ? 1 : -1));
+      }, { passive: true });
       box.addEventListener("keydown", function (e) {
         if (e.key === "ArrowLeft") showBox(boxI - 1);
         if (e.key === "ArrowRight") showBox(boxI + 1);
