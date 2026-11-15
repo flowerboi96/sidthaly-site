@@ -108,17 +108,19 @@
 
 /* carousel motion (all switched off for reduced-motion visitors) */
 .row{position:relative}
-.row .c{position:relative;transition:opacity .45s ease,transform .35s ease-out;will-change:transform}
+.row .c{position:relative;transition:opacity .45s ease,filter .5s ease,transform .35s ease-out;will-change:transform}
 .row .c.ghost{pointer-events:none;animation:none}
 .row .c::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(112deg,transparent 38%,rgba(255,255,255,.16) 50%,transparent 62%);transform:translateX(-130%)}
 .row .c.on.sweep::after{animation:sweep 1.3s cubic-bezier(.3,.6,.2,1) .2s}
 .row .c.on img{animation:drift 18s ease-in-out infinite alternate}
-.row .c:not(.on){animation:float 7s ease-in-out infinite}
-.row .c:nth-child(2){animation-delay:-2.3s}.row .c:nth-child(4){animation-delay:-4.6s}.row .c:nth-child(5){animation-delay:-1.2s}
+/* focus: only the selected painting is bright and moving; the others are dimmed and still */
+.row .c,.row .c.d1{opacity:1;filter:brightness(.42) saturate(.75)}
+.row .c.d1{filter:brightness(.6) saturate(.85)}
+.row .c.on{filter:none;animation:float 6s ease-in-out infinite}
 @keyframes sweep{to{transform:translateX(130%)}}
 @keyframes drift{from{transform:scale(1)}to{transform:scale(1.07) translate(-1%,-1.2%)}}
 @keyframes float{0%,100%{translate:0 0}50%{translate:0 -5px}}
 @media (prefers-reduced-motion:reduce){
- .row .c,.row .c.on img,.row .c:not(.on){animation:none!important;transition:none!important}
+ .row .c,.row .c.on,.row .c.on img{animation:none!important;transition:none!important}
  .row .c::after{display:none}
 }
