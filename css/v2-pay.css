@@ -14,3 +14,19 @@
 @media (max-width:420px){.payf .row2{grid-template-columns:1fr}}
 .payf .form-status.is-ok{color:#17663a}
 .payf .form-status.is-error{color:#B00B2E}
+.payf .row2{grid-template-columns:1.3fr .8fr 1fr}
+#pay-inr .row2{grid-template-columns:1.2fr 1fr}
+.payf select{width:100%}
+.pay2 .alt{margin:18px 0 0;font-size:14px;line-height:1.5;opacity:.92}
+.pay2 .alt a{color:inherit;text-decoration:underline;text-underline-offset:3px;font-weight:600}
+@media (max-width:620px){.payf .row2,#pay-inr .row2{grid-template-columns:1fr 1fr}.payf .row2 .fld:first-child{grid-column:1/-1}}
+/* fields on the light section and on the red card */
+.payf .fld input,.payf .fld select{color:#14161F;border-bottom:1px solid rgba(20,22,31,.35);background:transparent;font-size:16px}
+.payf .fld input:focus,.payf .fld select:focus{outline:none;border-bottom-color:#14161F}
+.payf .fld label{color:rgba(20,22,31,.7)}
+.pay2 .card.hl .payf .fld input,.pay2 .card.hl .payf .fld select{color:#fff;border-bottom-color:rgba(255,255,255,.6)}
+.pay2 .card.hl .payf .fld input:focus,.pay2 .card.hl .payf .fld select:focus{border-bottom-color:#fff}
+.pay2 .card.hl .payf .fld label{color:rgba(255,255,255,.85)}
+.payf .fld select option{color:#14161F;background:#fff}
+.pay2 .card.hl .payf .form-status.is-ok{color:#fff}
+.pay2 .card.hl .payf .form-status.is-error{color:#fff;font-weight:600}

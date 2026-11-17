@@ -1,9 +1,16 @@
 // POST /api/create-order
-// Body: { amount: rupees (number), invoice: "invoice number" }
+// Body: { amount: in the currency's main unit (e.g. 150 for USD 150), currency: "INR" | "USD" | "EUR" | "GBP", invoice: "invoice number" }
 // Creates a Razorpay order and returns { order_id, amount, currency, key_id }.
 
-const MIN_PAISE = 100;          // Razorpay minimum: ₹1
-const MAX_PAISE = 1000000 * 100; // ₹10,00,000 cap, to catch typos like an extra zero
+// Per-payment limits, in the currency's main unit. International card payments on this
+// account are capped by Razorpay at ₹40,000 each; the USD/EUR/GBP caps keep under that.
+// If Razorpay raises the limit, raise these too.
+const LIMITS = {
+  INR: { min: 1, max: 1000000, label: "₹" },
+  USD: { min: 1, max: 450, label: "US$" },
+  EUR: { min: 1, max: 400, label: "€" },
+  GBP: { min: 1, max: 350, label: "£" },
+};
 
 export async function onRequestPost({ request, env }) {
   if (!hasKeys(env)) return json({ error: "Payments aren't set up yet. Please email hello@sidthaly.com." }, 500);
@@ -11,10 +18,14 @@ export async function onRequestPost({ request, env }) {
   const body = await readJson(request);
   if (!body) return json({ error: "Invalid request." }, 400);
 
-  const rupees = Number(body.amount);
-  const paise = Math.round(rupees * 100);
-  if (!Number.isFinite(rupees) || paise < MIN_PAISE) return json({ error: "Enter an amount of at least ₹1." }, 400);
-  if (paise > MAX_PAISE) return json({ error: "That amount is too large to pay online. Please email hello@sidthaly.com." }, 400);
+  const currency = String(body.currency || "INR").toUpperCase();
+  const lim = LIMITS[currency];
+  if (!lim) return json({ error: "That currency isn't accepted. Please pay in USD, EUR, GBP or INR." }, 400);
+
+  const value = Number(body.amount);
+  if (!Number.isFinite(value) || value < lim.min) return json({ error: "Enter an amount of at least " + lim.label + lim.min + "." }, 400);
+  if (value > lim.max) return json({ error: "Card payments are limited to " + lim.label + lim.max.toLocaleString("en-IN") + " each. Please email hello@sidthaly.com and I'll split the invoice or send bank transfer details." }, 400);
+  const subunits = Math.round(value * 100); // all four currencies use 2 decimal places
 
   const invoice = String(body.invoice || "").trim().slice(0, 40);
   if (!invoice) return json({ error: "Enter your invoice number." }, 400);
@@ -27,7 +38,7 @@ export async function onRequestPost({ request, env }) {
         "Content-Type": "application/json",
         Authorization: "Basic " + btoa(env.RAZORPAY_KEY_ID + ":" + env.RAZORPAY_KEY_SECRET),
       },
-      body: JSON.stringify({ amount: paise, currency: "INR", receipt: invoice, notes: { invoice } }),
+      body: JSON.stringify({ amount: subunits, currency, receipt: invoice, notes: { invoice } }),
     });
   } catch (e) {
     return json({ error: "Couldn't reach the payment service. Please try again." }, 500);
