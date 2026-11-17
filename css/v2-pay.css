@@ -1,0 +1,8 @@
+/* Pay an invoice page */
+.pay-hero{padding-bottom:32px}
+.pay2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pay2 .card{display:flex;flex-direction:column}
+.pay2 .card .btn{margin-top:auto;align-self:flex-start}
+.pay2 .card ul{margin-bottom:26px}
+.faq a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:820px){.pay2{grid-template-columns:1fr}}
