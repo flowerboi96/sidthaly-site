@@ -5,3 +5,5 @@ Thumbs.db
 *.clip
 originals/
 __pycache__/
+.env
+.dev.vars

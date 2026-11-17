@@ -6,3 +6,11 @@
 .pay2 .card ul{margin-bottom:26px}
 .faq a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 @media (max-width:820px){.pay2{grid-template-columns:1fr}}
+.payf{margin-top:auto}
+.payf .row2{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-bottom:14px}
+.payf .fld{margin:0}
+.payf .form-status{min-height:1.4em;margin:0 0 12px;font-size:14px}
+.payf button[disabled]{opacity:.6;cursor:progress}
+@media (max-width:420px){.payf .row2{grid-template-columns:1fr}}
+.payf .form-status.is-ok{color:#17663a}
+.payf .form-status.is-error{color:#B00B2E}
