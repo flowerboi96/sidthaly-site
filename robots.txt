@@ -40,3 +40,5 @@ Disallow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://sidthaly.com/sitemap.xml
